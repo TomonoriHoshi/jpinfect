@@ -1,6 +1,6 @@
 Package: jpinfect
 Type: Package
-Title: R Package for Acquiring and Processing Data from Japan Institute for Health Security
+Title: Acquiring and Processing Data from Japan Institute for Health Security into R
 Version: 0.1.0
 Authors@R: c(
     person(
@@ -14,8 +14,8 @@ Authors@R: c(
       role = c("aut")
       ),
     person(
-      "Tomonori", "Hoshi",
-      email = "s-kanekol@nagasaki-u.ac.jp",
+      "Satoshi", "Kaneko",
+      email = "skaneko@nagasaki-u.ac.jp",
       role = c("aut")
     )
   )
