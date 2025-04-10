@@ -23,13 +23,21 @@ disease data from the Japan Institute for Health Security.
 }
 }
 
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/TomonoriHoshi/jpinfect}
+  \item Report bugs at \url{https://github.com/TomonoriHoshi/jpinfect/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Tomonori Hoshi \email{tomonori.hoshi.japan@gmail.com}
 
 Authors:
 \itemize{
   \item Erina Ishigaki \email{Erina.Ishigaki1@alumni.lshtm.ac.uk}
-  \item Tomonori Hoshi \email{s-kanekol@nagasaki-u.ac.jp}
+  \item Satoshi Kaneko \email{skaneko@nagasaki-u.ac.jp}
 }
 
 }

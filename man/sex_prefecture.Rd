@@ -334,7 +334,7 @@ The Japan Institute for Health Security (JIHS) (https://id-info.jihs.go.jp/index
 sex_prefecture
 }
 \description{
-This data set contains demographic information on sex by prefecture,
+This dataset contains demographic information on sex by prefecture,
 sourced from the Japan Institute for Health Security (JIHS).  The data ranges between
 1999 and 2022.
 }

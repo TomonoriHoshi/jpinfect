@@ -29,7 +29,7 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 
 #' Place Prefecture Data
 #' @description
-#' This data set contains information about the place of infection by prefecture,
+#' This dataset contains information about the place of infection by prefecture,
 #' sourced from the Japan Institute for Health Security (JIHS). The data is between
 #' 2001 and 2022.
 #'
@@ -464,7 +464,7 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' Sex Prefecture Data
 #'
 #' @description
-#' This data set contains demographic information on sex by prefecture,
+#' This dataset contains demographic information on sex by prefecture,
 #' sourced from the Japan Institute for Health Security (JIHS).  The data ranges between
 #' 1999 and 2022.
 #'

@@ -2,7 +2,7 @@
 % Please edit documentation in R/jpinfect_read_confirmed.R
 \name{jpinfect_read_confirmed}
 \alias{jpinfect_read_confirmed}
-\title{Read Confirmed Infection Data from File or Directory}
+\title{Read Confirmed Case Reports from File or Directory}
 \usage{
 jpinfect_read_confirmed(path, type = NULL, ...)
 }
@@ -14,10 +14,10 @@ jpinfect_read_confirmed(path, type = NULL, ...)
 \item{...}{Additional arguments passed to internal functions for further customization.}
 }
 \value{
-A data frame containing processed infection data for all rows and columns in the files.
+A data frame containing processed case reports for all rows and columns in the files.
 }
 \description{
-This function processes infection data either from a single file or from multiple files within a directory.
+This function processes case reports either from a single file or from multiple files within a directory.
 The function is capable of handling data by \code{"sex"} or \code{"place"} types, and processes data
 accordingly based on file patterns.
 }
@@ -35,7 +35,7 @@ Supported file patterns:
 \examples{
 \dontrun{
 # Process a single file
-data <- jpinfect_read_confirmed("path/to/file.xls", type = "sex")
+data <- jpinfect_read_confirmed("path/to/file.xls")
 
 # Process all files in a directory
 data <- jpinfect_read_confirmed("path/to/directory", type = "place")
