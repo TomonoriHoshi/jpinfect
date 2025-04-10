@@ -14,10 +14,10 @@
 \item{sheet_range}{A vector of integers specifying the sheet range to process. If NULL, it is inferred based on the year.}
 }
 \value{
-A data frame containing processed infection data from the specified file.
+A data frame containing processed case reports from the specified file.
 }
 \description{
-This internal function processes a single Excel file containing infection data. The function dynamically
+This internal function processes a single Excel file containing case reports. The function dynamically
 adapts to the structure of the file based on its type and year.
 }
 \details{

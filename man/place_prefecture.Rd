@@ -435,7 +435,7 @@ The Japan Institute for Health Security (JIHS) (https://id-info.jihs.go.jp/index
 place_prefecture
 }
 \description{
-This data set contains information about the place of infection by prefecture,
+This dataset contains information about the place of infection by prefecture,
 sourced from the Japan Institute for Health Security (JIHS). The data is between
 2001 and 2022.
 }

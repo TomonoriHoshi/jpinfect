@@ -1,6 +1,6 @@
-#' Read Confirmed Infection Data from File or Directory
+#' Read Confirmed Case Reports from File or Directory
 #'
-#' This function processes infection data either from a single file or from multiple files within a directory.
+#' This function processes case reports either from a single file or from multiple files within a directory.
 #' The function is capable of handling data by \code{"sex"} or \code{"place"} types, and processes data
 #' accordingly based on file patterns.
 #'
@@ -8,7 +8,7 @@
 #' @param type A character string specifying the type of data to import. Must be either \code{"sex"} or \code{"place"}.
 #' @param ... Additional arguments passed to internal functions for further customization.
 #'
-#' @return A data frame containing processed infection data for all rows and columns in the files.
+#' @return A data frame containing processed case reports for all rows and columns in the files.
 #'
 #' @details
 #' The function detects whether the \code{path} is a single file or a directory. If it is a single file,
@@ -24,7 +24,7 @@
 #' @examples
 #' \dontrun{
 #' # Process a single file
-#' data <- jpinfect_read_confirmed("path/to/file.xls", type = "sex")
+#' data <- jpinfect_read_confirmed("path/to/file.xls")
 #'
 #' # Process all files in a directory
 #' data <- jpinfect_read_confirmed("path/to/directory", type = "place")
@@ -60,14 +60,14 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 
 #' Process a Single Excel File
 #'
-#' This internal function processes a single Excel file containing infection data. The function dynamically
+#' This internal function processes a single Excel file containing case reports. The function dynamically
 #' adapts to the structure of the file based on its type and year.
 #'
 #' @param file_path A character string specifying the path to the Excel file.
 #' @param year An optional integer specifying the year of the data. If NULL, the year is inferred from the file name.
 #' @param sheet_range A vector of integers specifying the sheet range to process. If NULL, it is inferred based on the year.
 #'
-#' @return A data frame containing processed infection data from the specified file.
+#' @return A data frame containing processed case reports from the specified file.
 #'
 #' @details
 #' The function reads data from the specified sheet range using \code{read_excel}. It handles specific data formatting
@@ -257,7 +257,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 #' @param type A character string specifying the type of data to import. Must be either \code{"sex"} or \code{"place"}.
 #' @param directory A character string specifying the directory containing Excel files to process.
 #'
-#' @return A data frame containing combined infection data from all processed files.
+#' @return A data frame containing combined case reports from all processed files.
 #'
 #' @details
 #' The function identifies files matching the specified type within the directory. It processes each file using

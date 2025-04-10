@@ -12,7 +12,7 @@
 \item{directory}{A character string specifying the directory containing Excel files to process.}
 }
 \value{
-A data frame containing combined infection data from all processed files.
+A data frame containing combined case reports from all processed files.
 }
 \description{
 This internal function processes multiple Excel files within a directory. The files are processed based on the
