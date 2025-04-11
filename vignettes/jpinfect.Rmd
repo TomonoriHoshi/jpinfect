@@ -172,7 +172,7 @@ jpinfect_url_confirmed(year = 2021, type = "place")
 
 ### Downloading Raw Data
 
-The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the governmnet website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the *raw_data* folder or the specified directory.
+The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the government website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the *raw_data* folder or the specified directory.
 
 ```{r download, eval = FALSE}
 # Download data for 2020 and 2021
@@ -206,4 +206,14 @@ bullet <- jpinfect_read_bullet(directory = "raw_data")
 
 ## Reporting Bugs
 
-If you encounter any bugs or issues while using the `jpinfect` package, please report them on the GitHub Issues page. When reporting, please include the following information: - A clear description of the problem - Steps to reproduce the issue - Your R version and operating system - Relevant error messages - Example code to reproduce the problem
+If you encounter any bugs or issues while using the `jpinfect` package, please report them on the GitHub Issues page. When reporting, please include the following information:
+
+-   A clear description of the problem
+
+-   Steps to reproduce the issue
+
+-   Your R version and operating system
+
+-   Relevant error messages
+
+-   Example code to reproduce the problem
