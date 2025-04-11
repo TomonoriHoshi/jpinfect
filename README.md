@@ -1,4 +1,4 @@
-# jpinfect
+# jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
 
@@ -107,7 +107,7 @@ jpinfect_url_confirmed(year = 2021, type = "place")
 
 ### Downloading Raw Data
 
-The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the governmnet website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the *raw_data* folder or the specified directory.
+The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the government website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the *raw_data* folder or the specified directory.
 
 ``` r
 # Download data for 2020 and 2021
