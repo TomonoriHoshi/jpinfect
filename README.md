@@ -22,16 +22,15 @@ Data sourced from the Japan Institute for Health Security (JIHS). Data provided 
 
 ## Installation
 
-To install the current version, run the command:
+The `jpinfect` package can be installed from GitHub using the [devtools](https://github.com/hadley/devtools) package. To install the package, run the following command in your R console:
 
 ``` r
 # install.packages("jpinfect")
+if (!require("devtools")) install.packages("devtools")
 devtools::install_github("TomonoriHoshi/jpinfect")
 ```
 
-## Usage
-
-This is a basic example which shows you how to solve a common problem:
+Load the package after installation:
 
 ``` r
 library(jpinfect)
@@ -41,18 +40,13 @@ library(jpinfect)
 #> Usage is subject to their open data policy (Government Standard Terms of Use v1.0).
 #> Details: https://id-info.jihs.go.jp/usage-contract.html
 #> This library is independently developed and is not affiliated with any government entity.
-
-# Loading build-in datasets
-data("sex_prefecture")
-
-data("place_prefecture")
-
-data("bullet")
 ```
 
-## Built-in Datasets
+## Usage
 
-The following datasets are included in this package and sourced from the Japan Institute for Health Security (JIHS). They provide valuable information for analysing infectious disease trends across Japan.
+### Built-in Datasets
+
+The following datasets are included in this package and sourced from the Japan Institute for Health Security (JIHS). These datasets are:
 
 -   `sex_prefecture`: Confirmed weekly case reports on the sex distribution of reported cases by prefecture from 1999 to 2022. For further details, run `?sex_prefecture`.
 
@@ -60,7 +54,16 @@ The following datasets are included in this package and sourced from the Japan I
 
 -   `bullet`: Provisional weekly case reported by prefecture from 2022 to the current latest reports. For further details, run `?bullet`.
 
-### Merge datasets
+``` r
+# Loading build-in datasets
+data("sex_prefecture")
+data("place_prefecture")
+data("bullet")
+```
+
+### Merging Datasets
+
+The `jpinfect_merge` function helps to merge the datasets into one dataset if necessary, which enables users to start their data analysis instantly.
 
 ``` r
 ## Merge build-in datasets
@@ -70,8 +73,6 @@ confirmed_dataset <- jpinfect_merge(sex_prefecture, place_prefecture)
 # Merge three datasets
 bind_result <- jpinfect_merge(sex_prefecture, place_prefecture, bullet)
 ```
-
-The `jpinfect_merge` function helps to merge the datasets into one dataset if necessary, which enables users to start their data analysis instantly.
 
 ### **Convert Datasets from Wider to Longer; Vice Versa**
 
@@ -91,6 +92,8 @@ The `jpinfect_pivot` function efficiently handles data transformation, ensuring 
 
 Although the build-in datasets are provided in this package, it is ideal for scientists, epidemiologists and public health officers to review whole data handling process from the upstream to downstream. For those who cares the precision of dataset, `jpinfect` provides the following functions to build the same datasets or even the latest bullet datasets sourced from the government-provided raw data.
 
+### Checking Data Sources
+
 The sources of these datasets can be checked by using `jpinfect_url_confirmed` for confirmed case reports and `jpinfect_url_bullet` for provisional case reports, respectively.
 
 ``` r
@@ -102,7 +105,9 @@ jpinfect_url_confirmed(year = 2021, type = "sex")
 jpinfect_url_confirmed(year = 2021, type = "place")
 ```
 
-The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week.
+### Downloading Raw Data
+
+The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the governmnet website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the *raw_data* folder or the specified directory.
 
 ``` r
 # Download data for 2020 and 2021
@@ -118,7 +123,9 @@ jpinfect_get_bullet(year = 2025, week = 1:5, dest_dir = "raw_data")
 jpinfect_get_bullet(year = 2025, language = "jp", dest_dir = "raw_data")
 ```
 
-The acquired raw data into your local computer could be imported into R using `jpinfect_read_confirmed` and `jpinfect_read_bullet`. Both commands import datasets from
+### Reading Data
+
+The acquired raw data into your local computer could be imported into R using `jpinfect_read_confirmed` and `jpinfect_read_bullet`.
 
 ``` r
 ## Import confirmed case reports from file or directory
@@ -145,7 +152,7 @@ If you encounter a bug or issue while using the `jpinfect` package, we encourage
 
 2.  **Submit a New Issue**: If the issue is new, create a detailed report by clicking on the **"New Issue"** button. Include the following information:
 
-    -   A clear description of the issue or unexpected behavior.
+    -   A clear description of the issue or unexpected behaviour.
 
     -   Steps to reproduce the issue, if possible.
 
