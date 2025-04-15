@@ -1,3 +1,7 @@
+---
+---
+---
+
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
@@ -61,7 +65,7 @@ data("place_prefecture")
 data("bullet")
 ```
 
-### Merging Datasets
+### Data Merging
 
 The `jpinfect_merge` function helps to merge the datasets into one dataset if necessary, which enables users to start their data analysis instantly.
 
@@ -74,7 +78,7 @@ confirmed_dataset <- jpinfect_merge(sex_prefecture, place_prefecture)
 bind_result <- jpinfect_merge(sex_prefecture, place_prefecture, bullet)
 ```
 
-### **Convert Datasets from Wider to Longer; Vice Versa**
+### **Data Transformation from Wider to Longer; Vice Versa**
 
 The `jpinfect_pivot` function enables users to seamlessly pivot datasets between wide and long formats. This functionality is particularly useful for reorganising data to suit analysis or visualisation needs.
 
@@ -92,7 +96,7 @@ The `jpinfect_pivot` function efficiently handles data transformation, ensuring 
 
 Although the build-in datasets are provided in this package, it is ideal for scientists, epidemiologists and public health officers to review whole data handling process from the upstream to downstream. For those who cares the precision of dataset, `jpinfect` provides the following functions to build the same datasets or even the latest bullet datasets sourced from the government-provided raw data.
 
-### Checking Data Sources
+### Data Source Checks
 
 The sources of these datasets can be checked by using `jpinfect_url_confirmed` for confirmed case reports and `jpinfect_url_bullet` for provisional case reports, respectively.
 
@@ -105,7 +109,7 @@ jpinfect_url_confirmed(year = 2021, type = "sex")
 jpinfect_url_confirmed(year = 2021, type = "place")
 ```
 
-### Downloading Raw Data
+### Data Acquisition
 
 The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the government website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the *raw_data* folder or the specified directory.
 
@@ -123,7 +127,7 @@ jpinfect_get_bullet(year = 2025, week = 1:5, dest_dir = "raw_data")
 jpinfect_get_bullet(year = 2025, language = "jp", dest_dir = "raw_data")
 ```
 
-### Reading Data
+### Data Import
 
 The acquired raw data into your local computer could be imported into R using `jpinfect_read_confirmed` and `jpinfect_read_bullet`.
 
