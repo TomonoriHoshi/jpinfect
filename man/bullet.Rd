@@ -56,8 +56,6 @@ A data frame with X rows and Y columns.
 \item{Hepatitis A (cumulative)}{Case numbers for Hepatitis A (cumulative)}
 \item{Echinococcosis (weekly)}{Case numbers for Echinococcosis (weekly)}
 \item{Echinococcosis (cumulative)}{Case numbers for Echinococcosis (cumulative)}
-\item{Mpox (weekly)}{Case numbers for Mpox (weekly)}
-\item{Mpox (cumulative)}{Case numbers for Mpox (cumulative)}
 \item{Yellow fever (weekly)}{Case numbers for Yellow fever (weekly)}
 \item{Yellow fever (cumulative)}{Case numbers for Yellow fever (cumulative)}
 \item{Psittacosis (weekly)}{Case numbers for Psittacosis (weekly)}
@@ -74,6 +72,8 @@ A data frame with X rows and Y columns.
 \item{Rabies (cumulative)}{Case numbers for Rabies (cumulative)}
 \item{Coccidioidomycosis (weekly)}{Case numbers for Coccidioidomycosis (weekly)}
 \item{Coccidioidomycosis (cumulative)}{Case numbers for Coccidioidomycosis (cumulative)}
+\item{Monkeypox (weekly)}{Case numbers for Monkeypox (weekly)}
+\item{Monkeypox (cumulative)}{Case numbers for Monkeypox (cumulative)}
 \item{Zika virus infection (weekly)}{Case numbers for Zika virus infection (weekly)}
 \item{Zika virus infection (cumulative)}{Case numbers for Zika virus infection (cumulative)}
 \item{Severe Fever with Thrombocytopenia Syndrome (SFTS) (weekly)}{Case numbers for Severe Fever with Thrombocytopenia Syndrome (SFTS) (weekly)}
@@ -140,8 +140,8 @@ A data frame with X rows and Y columns.
 \item{Amebiasis (cumulative)}{Case numbers for Amebiasis (cumulative)}
 \item{Viral hepatitis (excluding hepatitis A and E) (weekly)}{Case numbers for Viral hepatitis (excluding hepatitis A and E) (weekly)}
 \item{Viral hepatitis (excluding hepatitis A and E) (cumulative)}{Case numbers for Viral hepatitis (excluding hepatitis A and E) (cumulative)}
-\item{Carbapenem-resistant Enterobacterales infection (weekly)}{Case numbers for Carbapenem-resistant Enterobacterales infection (weekly)}
-\item{Carbapenem-resistant Enterobacterales infection (cumulative)}{Case numbers for Carbapenem-resistant Enterobacterales infection (cumulative)}
+\item{Carbapenem-resistant enterobacteriaceae infection (weekly)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (weekly)}
+\item{Carbapenem-resistant enterobacteriaceae infection (cumulative)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (cumulative)}
 \item{Acute Flaccid Paralysis (excluding Acute poliomyelitis) (weekly)}{Case numbers for Acute Flaccid Paralysis (excluding Acute poliomyelitis) (weekly)}
 \item{Acute Flaccid Paralysis (excluding Acute poliomyelitis) (cumulative)}{Case numbers for Acute Flaccid Paralysis (excluding Acute poliomyelitis) (cumulative)}
 \item{Acute encephalitis (excluding JE and WNE) (weekly)}{Case numbers for Acute encephalitis (excluding JE and WNE) (weekly)}
@@ -184,6 +184,10 @@ A data frame with X rows and Y columns.
 \item{Measles (cumulative)}{Case numbers for Measles (cumulative)}
 \item{Multiple drug-resistant Acinetobacter infection (weekly)}{Case numbers for Multiple drug-resistant Acinetobacter infection (weekly)}
 \item{Multiple drug-resistant Acinetobacter infection (cumulative)}{Case numbers for Multiple drug-resistant Acinetobacter infection (cumulative)}
+\item{Mpox (weekly)}{Case numbers for Mpox (weekly)}
+\item{Mpox (cumulative)}{Case numbers for Mpox (cumulative)}
+\item{Carbapenem-resistant Enterobacterales infection (weekly)}{Case numbers for Carbapenem-resistant Enterobacterales infection (weekly)}
+\item{Carbapenem-resistant Enterobacterales infection (cumulative)}{Case numbers for Carbapenem-resistant Enterobacterales infection (cumulative)}
 }
 }
 \source{
