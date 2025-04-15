@@ -4,8 +4,8 @@ test_that("jpinfect_url_bullet behaves as expected", {
                "Please specify a year.")
 
   # Test: invalid year range
-  expect_error(jpinfect_url_bullet(year = 2023, week = 1:10, language = "en"),
-               "This function only works for years after 2023.")
+  expect_error(jpinfect_url_bullet(year = 2022, week = 1:10, language = "en"),
+               "This function only works for years after 2022.")
 
   # Test: invalid week range
   expect_error(jpinfect_url_bullet(year = 2024, week = c(-1, 54), language = "en"),

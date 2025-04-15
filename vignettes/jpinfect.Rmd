@@ -7,7 +7,7 @@ output:
     smart: no
     toc: true
 vignette: >
-  %\VignetteIndexEntry{jpinfect}
+  %\VignetteIndexEntry{jpinfect: Notifiable Infectious Diseases in Japan}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -114,6 +114,11 @@ str(bullet)
 The `jpinfect_merge` function helps to merge the datasets into one dataset if necessary, which enables users to start their data analysis instantly.
 
 ```{r merge}
+# Load the built-in datasets
+data("sex_prefecture")
+data("place_prefecture")
+data("bullet")
+
 # Merge two datasets
 confirmed_dataset <- jpinfect_merge(sex_prefecture, place_prefecture)
 
@@ -123,7 +128,7 @@ bind_result <- jpinfect_merge(sex_prefecture, place_prefecture, bullet)
 
 #### Data Exploration
 
-```{r data_exploration_1}
+```{r data_exploration_1, eval=FALSE}
 # Check the structure of the merged dataset
 head(confirmed_dataset)
 

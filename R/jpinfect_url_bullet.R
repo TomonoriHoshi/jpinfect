@@ -45,7 +45,7 @@ jpinfect_url_bullet <- function(year = NULL, week = 1:53, language = "en") {
 
   # Check if the year is valid for this function
   if (year <= 2022) {
-    stop("This function only works for years after 2023.")
+    stop("This function only works for years after 2022.")
   }
 
   # Validate the week range

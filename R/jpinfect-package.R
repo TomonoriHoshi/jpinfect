@@ -32,5 +32,4 @@
 #' @importFrom magrittr %>%
 #' @importFrom future.apply future_lapply
 #' @importFrom future plan
-#' @importFrom progressr progressor
 NULL

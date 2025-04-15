@@ -21,7 +21,7 @@ Authors@R: c(
   )
 Maintainer: Tomonori Hoshi <tomonori.hoshi.japan@gmail.com>
 Description: Functions to download and post process the infectious disease case data 
-              from Japan Institute for Health Security
+              from Japan Institute for Health Security.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
