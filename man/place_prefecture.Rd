@@ -5,7 +5,7 @@
 \alias{place_prefecture}
 \title{Place Prefecture Data}
 \format{
-A data frame with X rows and Y columns.
+A data frame with 55056 rows and 419 columns.
 \describe{
 \item{prefecture}{Case numbers for prefecture}
 \item{year}{Case numbers for year}
