@@ -1,7 +1,3 @@
----
----
----
-
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
