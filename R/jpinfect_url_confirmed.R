@@ -43,10 +43,16 @@ jpinfect_url_confirmed <- function(year = 2001, type = "sex") {
       url_c <- "/Syuukei/Syu_01_1.xls"
       url <- paste0(url_a, url_b, url_c)
     }
-    else {
+    else if (year >= 2014 & year < 2021) {
       url_a <- "https://id-info.jihs.go.jp/niid/images/idwr/ydata/"
       url_b <- year
       url_c <- "/Syuukei/Syu_01_1.xlsx"
+      url <- paste0(url_a, url_b, url_c)
+    }
+    else {
+      url_a <- "https://id-info.jihs.go.jp/surveillance/idwr/annual/"
+      url_b <- year
+      url_c <- "/syulist/Syu_01_1.xlsx"
       url <- paste0(url_a, url_b, url_c)
     }
   } else {  # type == "place"
@@ -66,10 +72,16 @@ jpinfect_url_confirmed <- function(year = 2001, type = "sex") {
       url_c <- "/Syuukei/Syu_02_1.xls"
       url <- paste0(url_a, url_b, url_c)
     }
-    else {
+    else if (year >= 2014 & year < 2021) {
       url_a <- "https://id-info.jihs.go.jp/niid/images/idwr/ydata/"
       url_b <- year
       url_c <- "/Syuukei/Syu_02_1.xlsx"
+      url <- paste0(url_a, url_b, url_c)
+    }
+    else {
+      url_a <- "https://id-info.jihs.go.jp/surveillance/idwr/annual/"
+      url_b <- year
+      url_c <- "/syulist/Syu_02_1.xlsx"
       url <- paste0(url_a, url_b, url_c)
     }
   }
