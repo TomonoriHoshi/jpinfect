@@ -20,7 +20,7 @@ test_that("jpinfect_url_confirmed generates correct URLs", {
   )
   expect_equal(
     jpinfect_url_confirmed(2021, "place"),
-    "https://id-info.jihs.go.jp/niid/images/idwr/ydata/2021/Syuukei/Syu_02_1.xlsx"
+    "https://id-info.jihs.go.jp/surveillance/idwr/annual/2021/syulist/Syu_02_1.xlsx"
   )
 })
 
