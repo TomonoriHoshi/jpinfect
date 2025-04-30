@@ -83,7 +83,7 @@ jpinfect_url_bullet <- function(year = NULL, week = 1:53, language = "en") {
 
     # Check if the data is available
     if (length(as.numeric(httr::HEAD(url)$headers$`content-length`)) == 0) {
-      message(paste0("NIID data is not available for week ", i, " in year ", year, "."))
+      message(paste0("JIHS data is not available for week ", i, " in year ", year, "."))
       next  # Skip this iteration if data is not available
     }
 
