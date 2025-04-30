@@ -17,7 +17,7 @@
 #'
 #' @details
 #' - The function constructs URLs for each week using the IDWR data source for the specified language.
-#' - The year must be explicitly provided and must be greater than 2022.
+#' - The year must be explicitly provided and must be greater than 2023.
 #' - Week numbers must be valid (1 to 53), otherwise an error is raised.
 #' - If the IDWR data is not available for a particular week, a warning is displayed, and that week is skipped.
 #' - Progress updates are provided in the console using `message()`.
@@ -44,8 +44,8 @@ jpinfect_url_bullet <- function(year = NULL, week = 1:53, language = "en") {
   }
 
   # Check if the year is valid for this function
-  if (year <= 2022) {
-    stop("This function only works for years after 2022.")
+  if (year <= 2023) {
+    stop("This function only works for years after 2023.")
   }
 
   # Validate the week range
