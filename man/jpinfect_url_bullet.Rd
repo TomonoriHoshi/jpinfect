@@ -27,7 +27,7 @@ See this webpage for further details: https://id-info.jihs.go.jp/
 }
 \details{
 - The function constructs URLs for each week using the IDWR data source for the specified language.
-- The year must be explicitly provided and must be greater than 2022.
+- The year must be explicitly provided and must be greater than 2023.
 - Week numbers must be valid (1 to 53), otherwise an error is raised.
 - If the IDWR data is not available for a particular week, a warning is displayed, and that week is skipped.
 - Progress updates are provided in the console using `message()`.

@@ -1,15 +1,15 @@
 #' Import one week or more weeks of bullet reports
 #'
-#' This function imports and processes surveillance data files downloaded from the National Institute of Infectious Diseases (NIID).
+#' This function imports and processes surveillance data files downloaded from the Japan Institute for Health Security (JIHS).
 #' The processed data for the specified year and weeks is combined into a single data frame, optionally saved to a file.
 #'
 #' @param year An integer specifying the year of the data files to process. If NULL, all years available in the directory are processed.
 #' @param week A numeric vector specifying the weeks to process (default is 1:53).
-#' @param directory A string specifying the directory containing the NIID data files (default is `"raw_data"`).
+#' @param directory A string specifying the directory containing the JIHS data files (default is `"raw_data"`).
 #' @param language A character string specifying the language of the data ('en' for English, 'jp' for Japanese). Default is 'en'.
 #' @param output_file A string specifying the file name to save the combined data. If NULL, the combined data is not saved (default is NULL).
 #'
-#' @return A data frame containing the combined and processed NIID surveillance data.
+#' @return A data frame containing the combined and processed JIHS surveillance data.
 #'         If `output_file` is specified, the data is also saved to a CSV file in the specified directory.
 #'
 #' @details
