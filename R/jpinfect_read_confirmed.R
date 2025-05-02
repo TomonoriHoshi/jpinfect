@@ -233,7 +233,6 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   colnames(combined_data) <- col_name
   cat(".") # progress report
 
-  # combined_data <- combined_data %>% relocate(year, .after = last_col()) %>% relocate(week, .after = last_col())
   combined_data <- combined_data %>% relocate(year, .after = prefecture) %>% relocate(week, .after = year)
 
   cat(".") # progress report
@@ -317,8 +316,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   }
 
   combined_data <- bind_rows(all_data)
-  combined_data <- combined_data %>% relocate(year, .after = last_col()) %>% relocate(week, .after = last_col())
-
+  combined_data <- combined_data %>% relocate(year, .after = prefecture) %>% relocate(week, .after = year)
 
   cat("Data processing complete!\n")
 
