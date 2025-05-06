@@ -10,6 +10,7 @@ A data frame with 55056 rows and 419 columns.
 \item{prefecture}{Case numbers for prefecture}
 \item{year}{Case numbers for year}
 \item{week}{Case numbers for week}
+\item{date}{Case numbers for date}
 \item{Ebola hemorrhagic fever (total)}{Case numbers for Ebola hemorrhagic fever (total)}
 \item{Ebola hemorrhagic fever (Inside Japan)}{Case numbers for Ebola hemorrhagic fever (Inside Japan)}
 \item{Ebola hemorrhagic fever (Others)}{Case numbers for Ebola hemorrhagic fever (Others)}

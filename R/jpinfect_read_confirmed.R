@@ -35,6 +35,7 @@
 #' @importFrom future plan multisession sequential
 #' @importFrom future.apply future_lapply
 #' @importFrom readxl read_excel
+#' @importFrom ISOweek ISOweek2date
 #' @export
 jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   # Single file: Check if it's a file but not a directory
@@ -239,6 +240,11 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 
   combined_data <- combined_data %>% mutate(across(2:ncol(.), as.integer))
 
+  # date added
+  combined_data$date <- paste0(combined_data$year, "-W", sprintf("%02d", combined_data$week), "-7") %>% ISOweek2date()
+  combined_data <- combined_data %>% relocate(date, .after = week)
+
+
   cat("Completed!\n")
 
   Sys.sleep(0.731)
@@ -316,7 +322,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   }
 
   combined_data <- bind_rows(all_data)
-  combined_data <- combined_data %>% relocate(year, .after = prefecture) %>% relocate(week, .after = year)
+  combined_data <- combined_data %>% relocate(year, .after = prefecture) %>% relocate(week, .after = year) %>% relocate(date, .after = week)
 
   cat("Data processing complete!\n")
 

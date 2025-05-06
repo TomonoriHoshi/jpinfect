@@ -17,18 +17,18 @@ jpinfect_read_bullet(
 
 \item{week}{A numeric vector specifying the weeks to process (default is 1:53).}
 
-\item{directory}{A string specifying the directory containing the NIID data files (default is `"raw_data"`).}
+\item{directory}{A string specifying the directory containing the JIHS data files (default is `"raw_data"`).}
 
 \item{language}{A character string specifying the language of the data ('en' for English, 'jp' for Japanese). Default is 'en'.}
 
 \item{output_file}{A string specifying the file name to save the combined data. If NULL, the combined data is not saved (default is NULL).}
 }
 \value{
-A data frame containing the combined and processed NIID surveillance data.
+A data frame containing the combined and processed JIHS surveillance data.
         If `output_file` is specified, the data is also saved to a CSV file in the specified directory.
 }
 \description{
-This function imports and processes surveillance data files downloaded from the National Institute of Infectious Diseases (NIID).
+This function imports and processes surveillance data files downloaded from the Japan Institute for Health Security (JIHS).
 The processed data for the specified year and weeks is combined into a single data frame, optionally saved to a file.
 }
 \details{

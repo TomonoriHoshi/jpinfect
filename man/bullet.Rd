@@ -10,6 +10,7 @@ A data frame with 5616 rows and 181 columns.
 \item{prefecture}{Case numbers for prefecture}
 \item{year}{Case numbers for year}
 \item{week}{Case numbers for week}
+\item{date}{Case numbers for date}
 \item{Ebola hemorrhagic fever (weekly)}{Case numbers for Ebola hemorrhagic fever (weekly)}
 \item{Ebola hemorrhagic fever (cumulative)}{Case numbers for Ebola hemorrhagic fever (cumulative)}
 \item{Crimean-Congo hemorrhagic fever (weekly)}{Case numbers for Crimean-Congo hemorrhagic fever (weekly)}
@@ -72,8 +73,6 @@ A data frame with 5616 rows and 181 columns.
 \item{Rabies (cumulative)}{Case numbers for Rabies (cumulative)}
 \item{Coccidioidomycosis (weekly)}{Case numbers for Coccidioidomycosis (weekly)}
 \item{Coccidioidomycosis (cumulative)}{Case numbers for Coccidioidomycosis (cumulative)}
-\item{Monkeypox (weekly)}{Case numbers for Monkeypox (weekly)}
-\item{Monkeypox (cumulative)}{Case numbers for Monkeypox (cumulative)}
 \item{Zika virus infection (weekly)}{Case numbers for Zika virus infection (weekly)}
 \item{Zika virus infection (cumulative)}{Case numbers for Zika virus infection (cumulative)}
 \item{Severe Fever with Thrombocytopenia Syndrome (SFTS) (weekly)}{Case numbers for Severe Fever with Thrombocytopenia Syndrome (SFTS) (weekly)}
@@ -140,8 +139,6 @@ A data frame with 5616 rows and 181 columns.
 \item{Amebiasis (cumulative)}{Case numbers for Amebiasis (cumulative)}
 \item{Viral hepatitis (excluding hepatitis A and E) (weekly)}{Case numbers for Viral hepatitis (excluding hepatitis A and E) (weekly)}
 \item{Viral hepatitis (excluding hepatitis A and E) (cumulative)}{Case numbers for Viral hepatitis (excluding hepatitis A and E) (cumulative)}
-\item{Carbapenem-resistant enterobacteriaceae infection (weekly)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (weekly)}
-\item{Carbapenem-resistant enterobacteriaceae infection (cumulative)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (cumulative)}
 \item{Acute Flaccid Paralysis (excluding Acute poliomyelitis) (weekly)}{Case numbers for Acute Flaccid Paralysis (excluding Acute poliomyelitis) (weekly)}
 \item{Acute Flaccid Paralysis (excluding Acute poliomyelitis) (cumulative)}{Case numbers for Acute Flaccid Paralysis (excluding Acute poliomyelitis) (cumulative)}
 \item{Acute encephalitis (excluding JE and WNE) (weekly)}{Case numbers for Acute encephalitis (excluding JE and WNE) (weekly)}

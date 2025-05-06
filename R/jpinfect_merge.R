@@ -34,7 +34,7 @@ jpinfect_merge <- function (dataset1 = sex_prefecture, dataset2 = place_prefectu
   if (!is.null(dataset3)) colnames(dataset3) <- .col_join_rename(dataset3)
 
   # merge datasets
-  temp_data <- full_join(dataset1, dataset2, by = c("prefecture", "year", "week"))
+  temp_data <- full_join(dataset1, dataset2, by = c("prefecture", "year", "week", "date"))
   if (!is.null(dataset3)) temp_data <- bind_rows(temp_data, dataset3)
 
   return(temp_data)
@@ -63,14 +63,14 @@ jpinfect_merge <- function (dataset1 = sex_prefecture, dataset2 = place_prefectu
 #'
 #' @keywords internal
 .ncol_check <- function (dataset) {
-  col_count <- ncol(dataset) - 3
+  col_count <- ncol(dataset) - 4
   if (col_count < 0) stop("Not enough cols for data merge.")
 
-  if (all((col_count %% 3 == 0) & (dataset$year <= 2022))) {
+  if (all((col_count %% 3 == 0) & (dataset$year <= 2023))) {
     return("sex")
-  } else if (all((col_count %% 4 == 0) & (dataset$year <= 2022))) {
+  } else if (all((col_count %% 4 == 0) & (dataset$year <= 2023))) {
     return("place")
-  } else if (all((col_count %% 2 == 0) & (dataset$year > 2022))) {
+  } else if (all((col_count %% 2 == 0) & (dataset$year > 2023))) {
     return("bullet")
   } else {
     stop("Column numbers are not suitable for data merge.")
