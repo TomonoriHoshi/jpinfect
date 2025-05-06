@@ -41,6 +41,7 @@
 #' @importFrom magrittr %>%
 #' @importFrom tidyselect last_col
 #' @importFrom stats na.omit
+#' @importFrom ISOweek ISOweek2date
 #'
 #' @export
 jpinfect_read_bullet <- function(year = NULL, week = 1:53, directory = "raw_data", language = "en", output_file = NULL) {
@@ -108,10 +109,11 @@ jpinfect_read_bullet <- function(year = NULL, week = 1:53, directory = "raw_data
     # Add year and week information
     year <- local_files[i] %>% basename() %>% str_extract("\\d{4}") %>% as.integer()
     week <- local_files[i] %>% basename() %>% str_extract("_\\d{2}_") %>% str_replace_all("_", "") %>% as.integer()
-    data <- data %>% mutate(year = year, week = week)
+    date <- paste0(year, "-W", sprintf("%02d", week), "-7") %>% ISOweek2date()
+    data <- data %>% mutate(year = year, week = week, date = date)
 
     # Select and arrange columns
-    data <- data %>% select(prefecture, year, week, contains("_"))
+    data <- data %>% select(prefecture, year, week, date, contains("_"))
 
     # Column name cleaning
     colnames(data) <- .col_rename_bullet(data)

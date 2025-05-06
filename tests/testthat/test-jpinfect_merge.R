@@ -3,7 +3,7 @@ test_that("jpinfect_merge merges sex_prefecture and place_prefecture correctly",
   result <- jpinfect_merge(sex_prefecture, place_prefecture)
 
   # Test if merged dataset contains expected number of columns
-  expect_equal(ncol(result), (sum(ncol(sex_prefecture) + ncol(place_prefecture)) - 3))
+  expect_equal(ncol(result), (sum(ncol(sex_prefecture) + ncol(place_prefecture)) - 4))
 
   # Test row count consistency
   expect_equal(nrow(result), nrow(sex_prefecture)) # Number of rows should match the largest dataset

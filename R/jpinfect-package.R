@@ -25,6 +25,7 @@
 #' @importFrom utils download.file
 #' @importFrom httr HEAD
 #' @importFrom dplyr select select_if filter relocate bind_rows bind_cols
+#' @importFrom ISOweek ISOweek2date
 #' @importFrom readxl read_excel
 #' @importFrom readr read_csv
 #' @importFrom stringr str_extract str_detect str_replace str_c str_replace_all str_trim

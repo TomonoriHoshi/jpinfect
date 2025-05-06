@@ -7,7 +7,7 @@ test_that("jpinfect_pivot pivots place_prefecture to long format when columns ar
   expect_true("cases" %in% colnames(result))
 
   # Check the number of rows: total_diseases x rows in the original dataset
-  total_diseases <- ncol(place_prefecture) - 3
+  total_diseases <- ncol(place_prefecture) - 4
   expected_rows <- total_diseases * nrow(place_prefecture)
   expect_equal(nrow(result), expected_rows)
 })
@@ -21,7 +21,7 @@ test_that("jpinfect_pivot pivots bullet to long format", {
   expect_true("cases" %in% colnames(result))
 
   # Check the number of rows: total_diseases x rows in the original dataset
-  total_diseases <- ncol(bullet) - 3
+  total_diseases <- ncol(bullet) - 4
   expected_rows <- total_diseases * nrow(bullet)
   expect_equal(nrow(result), expected_rows)
 })

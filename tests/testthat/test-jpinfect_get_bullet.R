@@ -92,7 +92,7 @@ test_that("jpinfect_get_bullet handles unavailable data gracefully", {
   # Simulate unavailable data
   expect_message(
     jpinfect_get_bullet(year = 2025, week = 53, language = "en", dest_dir = temp_dir, overwrite = TRUE),
-    "NIID data is not available for week 53 in year 2025."
+    "JIHS data is not available for week 53 in year 2025."
   )
 
   unlink(temp_dir, recursive = TRUE) # Clean up temporary files
