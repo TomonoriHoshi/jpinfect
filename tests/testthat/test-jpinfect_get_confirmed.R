@@ -1,7 +1,8 @@
-test_that("jpinfect_get_confirmed works as expected", {
-  temp_dir <- file.path(tempdir(), "test_jpinfect_get_confirmed")
-  dir.create(temp_dir, showWarnings = FALSE)
+# initial setup
+temp_dir <- file.path(tempdir(), "test_jpinfect_get_confirmed")
+dir.create(temp_dir, showWarnings = FALSE)
 
+test_that("jpinfect_get_confirmed works as expected", {
   # Test case 1: Valid year within range
   result <- jpinfect_get_confirmed(years = 2020, dest_dir = temp_dir)
   expect_true(file.exists(result[1]))
@@ -17,17 +18,12 @@ test_that("jpinfect_get_confirmed works as expected", {
   expect_length(result, 2)
   expect_true(all(file.exists(result)))
 
-  # Test case 4: Default behavior with no specified year
+  # Test case 4: Default behaviour with no specified year
   result <- jpinfect_get_confirmed(dest_dir = temp_dir)
   expect_true(file.exists(result[1]))
-
-  unlink(temp_dir, recursive = TRUE)
 })
 
 test_that("jpinfect_get_confirmed behaves correctly with invalid years", {
-  temp_dir <- file.path(tempdir(), "test_jpinfect_get_confirmed")
-  dir.create(temp_dir, showWarnings = FALSE)
-
   # Test case: Invalid year warning
   expect_warning(
     result <- jpinfect_get_confirmed(years = c(1990, 2000), dest_dir = temp_dir),
@@ -44,6 +40,7 @@ test_that("jpinfect_get_confirmed behaves correctly with invalid years", {
     jpinfect_get_confirmed(years = c(1990, 2000), dest_dir = temp_dir),
     "These years will be skipped."
   )
-
-  unlink(temp_dir, recursive = TRUE)
 })
+
+# delete temp directory
+unlink(temp_dir, recursive = TRUE)
