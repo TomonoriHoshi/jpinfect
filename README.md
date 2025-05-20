@@ -1,7 +1,7 @@
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
-
+ [![status](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92/status.svg)](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92)
 <!-- badges: end -->
 
 The `jpinfect` package provides tools for acquiring and processing notifiable infectious disease data in Japan. It is designed to help researchers, public health officials and developers access, clean, and manipulate data. This package aims to streamline data analysis processes while enabling reproducible research in public health and epidemiology.
