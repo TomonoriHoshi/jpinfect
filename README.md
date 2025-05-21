@@ -22,12 +22,12 @@ Data sourced from the Japan Institute for Health Security (JIHS). Data provided 
 
 ## Installation
 
-The `jpinfect` package can be installed from GitHub using the [devtools](https://github.com/hadley/devtools) package. To install the package, run the following command in your R console:
+The `jpinfect` package can be installed from GitHub using the [remotes](https://github.com/r-lib/remotes/) package. To install the package, run the following command in your R console:
 
 ``` r
 # install.packages("jpinfect")
-if (!require("devtools")) install.packages("devtools")
-devtools::install_github("TomonoriHoshi/jpinfect")
+if (!require("remotes")) install.packages("remotes")
+remotes::install_github("TomonoriHoshi/jpinfect")
 ```
 
 Load the package after installation:
