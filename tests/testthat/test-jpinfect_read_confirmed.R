@@ -59,7 +59,7 @@ cleanup_test_env(temp_dir)
 
 # Setup for .jpinfect_read_excels
 dir.create(temp_dir, showWarnings = FALSE)
-jpinfect_get_confirmed(years = c(1999, 2014), type = "sex", dest_dir = temp_dir)
+jpinfect_get_confirmed(years = c(2010, 2014), type = "sex", dest_dir = temp_dir)
 jpinfect_get_confirmed(years = c(2014, 2017), type = "place", dest_dir = temp_dir)
 
 # .jpinfect_read_excels Tests
@@ -67,9 +67,9 @@ test_that(".jpinfect_read_excels processes data correctly", {
   result_sex <- .jpinfect_read_excels(type = "sex", directory = temp_dir)
   expect_true(is.data.frame(result_sex))
   expect_gt(nrow(result_sex), 0)
-  expect_equal(ncol(result_sex), 286)
+  expect_equal(ncol(result_sex), 262)
   expect_true(all(c("year", "week", "prefecture") %in% colnames(result_sex)))
-  expect_equal(min(result_sex$year), 1999)
+  expect_equal(min(result_sex$year), 2010)
 
   result_place <- .jpinfect_read_excels(type = "place", directory = temp_dir)
   expect_true(is.data.frame(result_place))
