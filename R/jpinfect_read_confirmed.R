@@ -108,7 +108,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 
   # year check
   if (is.null(year)) {
-    year <- str_extract(file_path, "\\d{4}") %>% as.integer()
+    year <- basename(file_path) %>% str_extract("\\d{4}") %>% as.integer()
     if (is.na(year)) {
       stop(paste("Cannot detect year from the specified file:", file_path,
                  "\nPlease ensure the filename contains a valid 4-digit year or specify 'year' explicitly."))
