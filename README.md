@@ -26,7 +26,7 @@ The `jpinfect` package can be installed from GitHub using the [remotes](https://
 
 ``` r
 # install.packages("jpinfect")
-if (!require("remotes")) install.packages("remotes")
+if(!require("remotes")) install.packages("remotes")
 remotes::install_github("TomonoriHoshi/jpinfect")
 ```
 
