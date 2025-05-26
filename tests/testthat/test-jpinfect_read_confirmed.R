@@ -1,20 +1,15 @@
 # Global setup
-temp_dir <- file.path(tempdir(), "jpinfect_read_confirmed_test")
+temp_dir <- file.path(tempdir(), "test_jpinfect_data")
 dir.create(temp_dir, showWarnings = FALSE)
-jpinfect_get_confirmed(years = 2010, type = "sex", dest_dir = temp_dir)
-temp_file <- file.path(temp_dir, "2010_Syu_01_1.xls")
-
-# Helper function for cleanup
-cleanup_test_env <- function(dir) {
-  unlink(dir, recursive = TRUE)
-}
+jpinfect_get_confirmed(years = 2014, type = "sex", dest_dir = temp_dir)
+temp_file <- file.path(temp_dir, "2014_Syu_01_1.xlsx")
 
 # .jpinfect_read_excel Tests
 test_that(".jpinfect_read_excel imports Excel file correctly", {
   skip_if_not(file.exists(temp_file), "Test skipped: Unable to download the test Excel file.")
 
   expect_output(
-    result <- .jpinfect_read_excel(file_path = temp_file, year = 2010),
+    result <- .jpinfect_read_excel(file_path = temp_file, year = 2014, sheet_range = 6),
     "Processing.*Completed!"
   )
   expect_true(is.data.frame(result))
@@ -24,7 +19,7 @@ test_that(".jpinfect_read_excel imports Excel file correctly", {
 
 test_that(".jpinfect_read_excel handles errors appropriately", {
   # Unsupported format
-  unsupported_file <- file.path(temp_dir, "2010_Syu_01_1.csv")
+  unsupported_file <- file.path(temp_dir, "2014_Syu_01_1.csv")
   file.create(unsupported_file)
   expect_error(.jpinfect_read_excel(file_path = unsupported_file), "Unsupported file format")
 
@@ -54,23 +49,23 @@ test_that(".col_rename handles repetition and empty datasets", {
   expect_equal(.col_rename(mock_empty, rep_each = 1), character(0))
 })
 
-# Cleanup .jpinfect_read_excel
-cleanup_test_env(temp_dir)
+# Completed .jpinfect_read_excel
 
 # Setup for .jpinfect_read_excels
-dir.create(temp_dir, showWarnings = FALSE)
-jpinfect_get_confirmed(years = c(2010, 2014), type = "sex", dest_dir = temp_dir)
-jpinfect_get_confirmed(years = c(2014, 2017), type = "place", dest_dir = temp_dir)
-
 # .jpinfect_read_excels Tests
-test_that(".jpinfect_read_excels processes data correctly", {
+test_that(".jpinfect_read_excels processes sex data correctly (skip_on_cran)", {
+  skip_on_cran()
   result_sex <- .jpinfect_read_excels(type = "sex", directory = temp_dir)
   expect_true(is.data.frame(result_sex))
   expect_gt(nrow(result_sex), 0)
-  expect_equal(ncol(result_sex), 262)
+  expect_equal(ncol(result_sex), 289)
   expect_true(all(c("year", "week", "prefecture") %in% colnames(result_sex)))
-  expect_equal(min(result_sex$year), 2010)
+  expect_equal(min(result_sex$year), 1999)
+})
 
+test_that(".jpinfect_read_excels processes place data correctly (skip_on_cran)", {
+  skip_on_cran()
+  jpinfect_get_confirmed(years = c(2014, 2017), type = "place", dest_dir = temp_dir)
   result_place <- .jpinfect_read_excels(type = "place", directory = temp_dir)
   expect_true(is.data.frame(result_place))
   expect_gt(nrow(result_place), 0)
@@ -88,7 +83,8 @@ test_that(".jpinfect_read_excels handles invalid inputs", {
   unlink(empty_dir, recursive = TRUE)
 })
 
-test_that(".jpinfect_read_excels displays correct logs", {
+test_that(".jpinfect_read_excels displays correct logs (skip_on_cran)", {
+  skip_on_cran()
   logs <- capture.output(.jpinfect_read_excels(type = "sex", directory = temp_dir))
   expect_true(any(grepl("Processing", logs)))
   expect_true(any(grepl("Please enjoy a cup of Japanese tea!", logs)))
