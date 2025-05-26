@@ -21,9 +21,9 @@ Authors@R: c(
   )
 Maintainer: Tomonori Hoshi <tomonori.hoshi.japan@gmail.com>
 Description: Functions to download and post process the infectious disease case data 
-              from Japan Institute for Health Security (JIHS). Also the package included
-              ready-to-analyse dataset from JIHS. See JIHS website for further details
-              <https://id-info.jihs.go.jp/usage-contract.html>.
+              from Japan Institute for Health Security. Also the package included 
+              ready-to-analyse datasets. See the data source website for further details
+              <https://id-info.jihs.go.jp/>.
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
