@@ -39,7 +39,7 @@ The processed data for the specified year and weeks is combined into a single da
 - Processed data for all specified files is combined into a single data frame.
 }
 \examples{
-\dontrun{
+\donttest{
 # Process data for 2025, weeks 1 to 10, in English, and save the output
 combined_data <- jpinfect_read_bullet(year = 2025, week = 1:10,
                                          directory = "raw_data", language = "en",

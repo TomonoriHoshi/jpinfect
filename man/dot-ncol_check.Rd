@@ -16,10 +16,4 @@ If column numbers do not match any predefined types, an error is thrown.
 \description{
 This internal function determines the type of dataset (`sex`, `place`, or `bullet`) based on the number of columns.
 }
-\examples{
-\dontrun{
-comment(dataset1) <- .ncol_check(dataset1)
-}
-
-}
 \keyword{internal}

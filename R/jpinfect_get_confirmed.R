@@ -21,7 +21,7 @@
 #' a file download fails, the function returns \code{NULL} for that year.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Download data for 2020 and 2021
 #' jpinfect_get_confirmed(years = c(2020, 2021), type = "sex")
 #'

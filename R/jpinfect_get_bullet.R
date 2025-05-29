@@ -27,7 +27,7 @@
 #' - Progress updates are displayed in the console using `message()`.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Download English data for weeks 1 to 5 in 2025
 #' jpinfect_get_bullet(year = 2025, week = 1:5, language = "en", dest_dir = "raw_data")
 #'

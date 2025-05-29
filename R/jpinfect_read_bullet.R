@@ -20,7 +20,7 @@
 #' - Processed data for all specified files is combined into a single data frame.
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Process data for 2025, weeks 1 to 10, in English, and save the output
 #' combined_data <- jpinfect_read_bullet(year = 2025, week = 1:10,
 #'                                          directory = "raw_data", language = "en",
@@ -145,12 +145,6 @@ jpinfect_read_bullet <- function(year = NULL, week = 1:53, directory = "raw_data
 #'
 #' @details
 #' The function removes unnecessary characters, trims whitespace, replaces certain patterns for consistency, and optionally repeats the column names.
-#'
-#' @examples
-#' \dontrun{
-#' # Clean column names for a dataset
-#' col_rename_bullet <- .col_rename_bullet(dataset = my_data, rep_each = 3)
-#' }
 #'
 #' @importFrom stringr str_replace str_replace_all str_trim
 #'

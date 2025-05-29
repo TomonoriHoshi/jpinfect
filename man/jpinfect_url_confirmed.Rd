@@ -21,7 +21,7 @@ for a specified year.
 See this webpage for further details: https://id-info.jihs.go.jp/
 }
 \examples{
-\dontrun{
+\donttest{
 # Check URL for weekly cases by sex and prefecture in 2010
 jpinfect_url_confirmed(2010)
 

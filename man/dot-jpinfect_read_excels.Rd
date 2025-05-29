@@ -28,14 +28,4 @@ Supported file patterns:
   \item{\code{"place"}}{Files with names containing \code{"Syu_02_1.xls"}.}
 }
 }
-\examples{
-\dontrun{
-# Process all files for "sex" data
-data <- .jpinfect_read_excels(type = "sex", directory = "path/to/directory")
-
-# Process all files for "place" data
-data <- .jpinfect_read_excels(type = "place", directory = "path/to/directory")
-}
-
-}
 \keyword{internal}

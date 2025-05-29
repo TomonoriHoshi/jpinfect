@@ -11,7 +11,7 @@
 #'
 #' @return A character string containing the URL for the specified year's data.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Check URL for weekly cases by sex and prefecture in 2010
 #' jpinfect_url_confirmed(2010)
 #'

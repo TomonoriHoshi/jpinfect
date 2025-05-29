@@ -33,7 +33,7 @@ See this webpage for further details: https://id-info.jihs.go.jp/
 - Progress updates are provided in the console using `message()`.
 }
 \examples{
-\dontrun{
+\donttest{
 # Display URLs for English data for weeks 1 to 5 in 2025
 jpinfect_url_bullet(year = 2025, week = 1:5, language = "en")
 

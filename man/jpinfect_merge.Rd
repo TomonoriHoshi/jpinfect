@@ -25,7 +25,7 @@ This function merges multiple datasets (`dataset1`, `dataset2`, and optionally `
 It also renames column names according to the dataset type (`sex`, `place`, or `bullet`).
 }
 \examples{
-\dontrun{
+\donttest{
 # Example usage
 bind_result <- jpinfect_merge(sex_prefecture, place_prefecture, bullet)
 }

@@ -21,11 +21,4 @@ This helper function cleans and formats column names of a dataset for consistent
 The function removes unnecessary characters, trims whitespace, replaces certain patterns for consistency, and optionally
 repeats the column names based on the \code{rep_each} parameter.
 }
-\examples{
-\dontrun{
-# Clean column names for a dataset
-clean_names <- .col_rename(dataset = my_data, rep_each = 3)
-}
-
-}
 \keyword{internal}

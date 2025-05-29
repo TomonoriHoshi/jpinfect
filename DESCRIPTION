@@ -1,6 +1,6 @@
 Package: jpinfect
 Type: Package
-Title: Acquiring and Processing Data from Japan Institute for Health Security into R
+Title: Acquiring and Processing Data from Japan Institute for Health Security
 Version: 0.1.1
 Authors@R: c(
     person(
@@ -20,7 +20,7 @@ Authors@R: c(
     )
   )
 Maintainer: Tomonori Hoshi <tomonori.hoshi.japan@gmail.com>
-Description: Functions to download and post process the infectious disease case data 
+Description: Download and post process the infectious disease case data 
               from Japan Institute for Health Security. Also the package included 
               ready-to-analyse datasets. See the data source website for further details
               <https://id-info.jihs.go.jp/>.

@@ -37,7 +37,7 @@ For each year, the function attempts to download the corresponding file from JIH
 If a file already exists and \code{overwrite = FALSE}, the download is skipped.
 }
 \examples{
-\dontrun{
+\donttest{
 # Download data for 2020 and 2021
 jpinfect_get_confirmed(years = c(2020, 2021), type = "sex")
 

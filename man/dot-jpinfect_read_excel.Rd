@@ -30,14 +30,4 @@ Supported file patterns:
   \item{\code{"place"}}{Files with names containing \code{"02_1.xls"}.}
 }
 }
-\examples{
-\dontrun{
-# Process a single file with inferred year
-data <- .jpinfect_read_excel("path/to/file.xls")
-
-# Specify the year explicitly
-data <- .jpinfect_read_excel("path/to/file.xls", year = 2021)
-}
-
-}
 \keyword{internal}

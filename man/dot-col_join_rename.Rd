@@ -15,10 +15,4 @@ A vector of modified column names based on the dataset type.
 \description{
 This internal function standardizes column names for consistency in merged datasets. Column names are transformed based on the dataset type (`sex`, `place`, or `bullet`).
 }
-\examples{
-\dontrun{
-colnames(dataset1) <- .col_join_rename(dataset1)
-}
-
-}
 \keyword{internal}

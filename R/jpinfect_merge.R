@@ -16,7 +16,7 @@
 #' @importFrom dplyr full_join bind_rows
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Example usage
 #' bind_result <- jpinfect_merge(sex_prefecture, place_prefecture, bullet)
 #' }
@@ -56,11 +56,6 @@ jpinfect_merge <- function (dataset1 = sex_prefecture, dataset2 = place_prefectu
 #' @importFrom magrittr %>%
 #' @importFrom stringr str_replace_all
 #'
-#' @examples
-#' \dontrun{
-#' comment(dataset1) <- .ncol_check(dataset1)
-#' }
-#'
 #' @keywords internal
 .ncol_check <- function (dataset) {
   col_count <- ncol(dataset) - 4
@@ -90,11 +85,6 @@ jpinfect_merge <- function (dataset1 = sex_prefecture, dataset2 = place_prefectu
 #'
 #' @importFrom magrittr %>%
 #' @importFrom stringr str_replace_all
-#'
-#' @examples
-#' \dontrun{
-#' colnames(dataset1) <- .col_join_rename(dataset1)
-#' }
 #'
 #' @keywords internal
 .col_join_rename <- function (dataset) {

@@ -33,7 +33,7 @@ Supported file patterns:
 }
 }
 \examples{
-\dontrun{
+\donttest{
 # Process a single file
 data <- jpinfect_read_confirmed("path/to/file.xls")
 

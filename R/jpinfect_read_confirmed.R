@@ -22,7 +22,7 @@
 #' }
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # Process a single file
 #' data <- jpinfect_read_confirmed("path/to/file.xls")
 #'
@@ -78,15 +78,6 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 #' \describe{
 #'   \item{\code{"sex"}}{Files with names containing \code{"11.xls"} or \code{"01_1.xls"}.}
 #'   \item{\code{"place"}}{Files with names containing \code{"02_1.xls"}.}
-#' }
-#'
-#' @examples
-#' \dontrun{
-#' # Process a single file with inferred year
-#' data <- .jpinfect_read_excel("path/to/file.xls")
-#'
-#' # Specify the year explicitly
-#' data <- .jpinfect_read_excel("path/to/file.xls", year = 2021)
 #' }
 #'
 #' @importFrom stringr str_extract str_detect str_replace
@@ -274,15 +265,6 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 #'   \item{\code{"place"}}{Files with names containing \code{"Syu_02_1.xls"}.}
 #' }
 #'
-#' @examples
-#' \dontrun{
-#' # Process all files for "sex" data
-#' data <- .jpinfect_read_excels(type = "sex", directory = "path/to/directory")
-#'
-#' # Process all files for "place" data
-#' data <- .jpinfect_read_excels(type = "place", directory = "path/to/directory")
-#' }
-#'
 #' @importFrom dplyr bind_rows relocate mutate
 #' @importFrom stringr str_detect
 #' @keywords internal
@@ -344,12 +326,6 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 #' @details
 #' The function removes unnecessary characters, trims whitespace, replaces certain patterns for consistency, and optionally
 #' repeats the column names based on the \code{rep_each} parameter.
-#'
-#' @examples
-#' \dontrun{
-#' # Clean column names for a dataset
-#' clean_names <- .col_rename(dataset = my_data, rep_each = 3)
-#' }
 #'
 #' @importFrom stringr str_replace str_replace_all str_trim
 #' @keywords internal

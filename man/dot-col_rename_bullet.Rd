@@ -20,11 +20,4 @@ This helper function cleans and formats column names of a dataset to ensure cons
 \details{
 The function removes unnecessary characters, trims whitespace, replaces certain patterns for consistency, and optionally repeats the column names.
 }
-\examples{
-\dontrun{
-# Clean column names for a dataset
-col_rename_bullet <- .col_rename_bullet(dataset = my_data, rep_each = 3)
-}
-
-}
 \keyword{internal}
