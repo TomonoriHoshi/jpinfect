@@ -9,7 +9,7 @@ jpinfect_get_bullet(
   week = 1:53,
   language = "en",
   overwrite = FALSE,
-  dest_dir = "raw_data"
+  dest_dir = NULL
 )
 }
 \arguments{
@@ -24,8 +24,8 @@ Default is 'en'.}
 \item{overwrite}{A logical value indicating whether to overwrite existing files (default is FALSE).
 If FALSE, existing files are skipped, and only new files are downloaded.}
 
-\item{dest_dir}{A string specifying the directory where the downloaded files will be saved.
-The default is `"raw_data"`.}
+\item{dest_dir}{Directory to save files. If NULL, uses tempdir() (files deleted when R session ends).
+Specify a permanent directory to keep downloaded data.}
 }
 \value{
 No return value. The function downloads surveillance data files from JIHS and saves them

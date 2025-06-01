@@ -8,7 +8,7 @@ jpinfect_get_confirmed(
   years = NULL,
   type = "sex",
   overwrite = FALSE,
-  dest_dir = "raw_data"
+  dest_dir = NULL
 )
 }
 \arguments{
@@ -20,8 +20,8 @@ or \code{"place"}.}
 
 \item{overwrite}{(logical) Whether to overwrite existing files. Defaults to \code{FALSE}.}
 
-\item{dest_dir}{(character) The directory where the downloaded files will be saved.
-Defaults to \code{"raw_data"}.}
+\item{dest_dir}{Directory to save files. If NULL, uses tempdir() (files deleted when R session ends).
+Specify a permanent directory to keep downloaded data.}
 }
 \value{
 A character vector of file paths for successfully downloaded files. If
