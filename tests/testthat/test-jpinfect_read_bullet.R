@@ -1,13 +1,9 @@
 # Create a temporary directory for testing
-temp_dir <- file.path(tempdir(), "jpinfect_read_bullet_test")
-dir.create(temp_dir, showWarnings = FALSE)
-
-jpinfect_get_bullet(year = 2025, week = 1:2, language = "en", dest_dir = temp_dir)
-jpinfect_get_bullet(year = 2025, week = 1:2, language = "jp", dest_dir = temp_dir)
+temp_data_dir <- system.file("extdata", package = "jpinfect")
 
 # Test: Import English data
 test_that("jpinfect_read_bullet imports English data correctly", {
-  result <- jpinfect_read_bullet(year = 2025, directory = temp_dir, language = "en")
+  result <- jpinfect_read_bullet(year = 2025, directory = temp_data_dir, language = "en")
 
   expect_true(is.data.frame(result))
   expect_gt(nrow(result), 0)  # Ensure rows are present
@@ -16,7 +12,7 @@ test_that("jpinfect_read_bullet imports English data correctly", {
 
 # Test: Import Japanese data
 test_that("jpinfect_read_bullet imports Japanese data correctly", {
-  result <- jpinfect_read_bullet(year = 2025, directory = temp_dir, language = "jp")
+  result <- jpinfect_read_bullet(year = 2025, directory = temp_data_dir, language = "jp")
 
   expect_true(is.data.frame(result))
   expect_gt(nrow(result), 0)  # Ensure rows are present
