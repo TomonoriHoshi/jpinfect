@@ -10,8 +10,8 @@
 #'                 Default is 'en'.
 #' @param overwrite A logical value indicating whether to overwrite existing files (default is FALSE).
 #'                  If FALSE, existing files are skipped, and only new files are downloaded.
-#' @param dest_dir A string specifying the directory where the downloaded files will be saved.
-#'                 The default is `"raw_data"`.
+#' @param dest_dir Directory to save files. If NULL, uses tempdir() (files deleted when R session ends).
+#'             Specify a permanent directory to keep downloaded data.
 #'
 #' @return No return value. The function downloads surveillance data files from JIHS and saves them
 #'         to the specified directory (`dest_dir`). If the data is unavailable for certain weeks, those weeks
@@ -42,7 +42,7 @@
 #' @importFrom utils download.file
 #'
 #' @export
-jpinfect_get_bullet <- function(year = NULL, week = 1:53, language = "en", overwrite = FALSE, dest_dir = "raw_data") {
+jpinfect_get_bullet <- function(year = NULL, week = 1:53, language = "en", overwrite = FALSE, dest_dir = NULL) {
   # Validate year
   if (is.null(year)) {
     stop("Please specify a year.")
@@ -53,8 +53,14 @@ jpinfect_get_bullet <- function(year = NULL, week = 1:53, language = "en", overw
   }
 
   # Create destination directory if it doesn't exist
-  if (!dir.exists(dest_dir)) {
-    dir.create(dest_dir, recursive = TRUE)
+  if (is.null(dest_dir)) {
+    dest_dir <- tempdir()
+    warning(
+      "Using temporary directory. Downloaded files will be deleted when R session ends.\n",
+      "To avoid re-downloading (and reduce server load), specify a permanent directory:\n",
+      "jpinfect_get_confirmed(..., dest_dir = 'my_data_folder')",
+      call. = FALSE
+    )
   }
 
   # Generate URLs using jpinfect_url_bullet

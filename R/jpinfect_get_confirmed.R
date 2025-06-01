@@ -8,8 +8,8 @@
 #' @param type (character) The type of data to download. Must be either \code{"sex"}
 #'   or \code{"place"}.
 #' @param overwrite (logical) Whether to overwrite existing files. Defaults to \code{FALSE}.
-#' @param dest_dir (character) The directory where the downloaded files will be saved.
-#'   Defaults to \code{"raw_data"}.
+#' @param dest_dir Directory to save files. If NULL, uses tempdir() (files deleted when R session ends).
+#'   Specify a permanent directory to keep downloaded data.
 #'
 #' @details
 #' This function validates the input parameters, including the range of years and
@@ -32,7 +32,7 @@
 #' @importFrom utils download.file
 #'
 #' @export
-jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE, dest_dir = "raw_data") {
+jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE, dest_dir = NULL) {
   # Validate type parameter
   if(!type %in% c("sex", "place")) {
     stop("type must be either \"sex\" or \"place\"")
@@ -64,8 +64,14 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
   }
 
   # Create destination directory if it doesn't exist
-  if(!dir.exists(dest_dir)) {
-    dir.create(dest_dir, recursive = TRUE)
+  if(is.null(dest_dir)) {
+    dest_dir <- tempdir()
+    warning(
+      "Using temporary directory. Downloaded files will be deleted when R session ends.\n",
+      "To avoid re-downloading (and reduce server load), specify a permanent directory:\n",
+      "jpinfect_get_confirmed(..., dest_dir = 'raw_data')",
+      call. = FALSE
+    )
   }
 
   # Download files for valid years using sapply

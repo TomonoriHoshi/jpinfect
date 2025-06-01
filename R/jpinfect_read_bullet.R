@@ -77,7 +77,7 @@ jpinfect_read_bullet <- function(year = NULL, week = 1:53, directory = "raw_data
 
   # Show files to process
   message("Files to process:")
-  print(local_files)
+  message(paste(local_files, collapse = "\n"))
 
   # Initialise an empty list to store processed data
   combined_data_list <- list()

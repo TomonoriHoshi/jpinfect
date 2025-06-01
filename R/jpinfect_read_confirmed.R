@@ -95,7 +95,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
     stop("The 'file_path' is empty. Please specify a valid file path.")
   }
 
-  cat("Processing...")
+  message("Processing...", appendLF = FALSE)
 
   # year check
   if (is.null(year)) {
@@ -132,7 +132,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
       data$year <- year
       data$week <- if (year == 1999) sheet + 12 else sheet - 1
 
-      cat(".") # progress report
+      message(".", appendLF = FALSE) # progress report
 
       return(data)
     })
@@ -169,7 +169,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
       data$year <- year
       data$week <- if (year == 1999) sheet + 12 else sheet - 1
 
-      cat(".") # progress report
+      message(".", appendLF = FALSE) # progress report
 
       return(data)
     })
@@ -182,11 +182,11 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   plan(sequential)
 
   combined_data <- bind_rows(data_list) %>% suppressMessages
-  cat(".") # progress report
+  message(".", appendLF = FALSE) # progress report
 
   # Rename rows and columns
   row_name <- c("Total", prefecture_en) %>% rep(nrow(combined_data) / 48)
-  cat(".") # progress report
+  message(".", appendLF = FALSE) # progress report
 
   combined_data[1] <- row_name
   names(combined_data)[1] <- "prefecture"
@@ -211,23 +211,23 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
         .col_rename(rep_each = 4)
     }
   }
-  cat(".") # progress report
+  message(".", appendLF = FALSE) # progress report
 
   col_2_name <- names(combined_data) %>%
     str_extract("\\([A-Za-z\\s\\.]+\\)|prefecture|year|week") %>%
     str_replace("\\s*No\\.", "")
-  cat(".") # progress report
+  message(".", appendLF = FALSE) # progress report
 
   col_3_name <- str_c(col_1_name, " ", col_2_name[2:(length(col_2_name)-2)])
-  cat(".") # progress report
+  message(".", appendLF = FALSE) # progress report
 
   col_name <- c(col_2_name[1], col_3_name, col_2_name[(length(col_2_name)-1):length(col_2_name)])
   colnames(combined_data) <- col_name
-  cat(".") # progress report
+  message(".", appendLF = FALSE) # progress report
 
   combined_data <- combined_data %>% relocate(year, .after = prefecture) %>% relocate(week, .after = year)
 
-  cat(".") # progress report
+  message(".", appendLF = FALSE) # progress report
 
   combined_data <- combined_data %>% mutate(across(2:ncol(.), as.integer))
 
@@ -236,7 +236,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   combined_data <- combined_data %>% relocate(date, .after = week)
 
 
-  cat("Completed!\n")
+  message("Completed!\n")
 
   Sys.sleep(0.731)
 
@@ -287,26 +287,26 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
     stop(paste0("Cannot found dataset in \"", directory, "\""))
   }
 
-  cat("Processing", length(local_files), "files:\n")
+  message("Processing", length(local_files), "files:\n")
 
-  print(local_files)
+  message(paste(local_files, collapse = "\n"))
 
-  cat("\nThis will take some time. Please enjoy a cup of Japanese tea!\n\n")
+  message("\nThis will take some time. Please enjoy a cup of Japanese tea!\n\n")
 
   # initialise the data frame for loop
   all_data <- list()
 
   for(i in seq_along(local_files)) {
-    cat("Starting:", local_files[i], "\n")
+    message("Starting:", local_files[i], "\n")
     temp_data <- .jpinfect_read_excel(file_path = local_files[i])
     all_data[[i]] <- temp_data
-    cat("\n")
+    message("\n")
   }
 
   combined_data <- bind_rows(all_data)
   combined_data <- combined_data %>% relocate(year, .after = prefecture) %>% relocate(week, .after = year) %>% relocate(date, .after = week)
 
-  cat("Data processing complete!\n")
+  message("Data processing complete!\n")
 
 
   return(combined_data)
