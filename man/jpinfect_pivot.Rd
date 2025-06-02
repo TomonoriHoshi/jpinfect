@@ -28,7 +28,7 @@ it is pivoted to a long format.
 - The function ensures that the columns `prefecture`, `year`, `week` and `date` are always present.
 }
 \examples{
-\dontrun{
+\donttest{
 # Pivot the dataset
 result <- jpinfect_pivot(bind_dataset)
 print(result)
