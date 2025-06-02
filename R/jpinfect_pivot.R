@@ -23,7 +23,7 @@
 #' @examples
 #' \donttest{
 #' # Pivot the dataset
-#' result <- jpinfect_pivot(bind_dataset)
+#' result <- jpinfect_pivot(place_prefecture)
 #' print(result)
 #' }
 #'

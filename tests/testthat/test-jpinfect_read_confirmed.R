@@ -87,9 +87,6 @@ test_that("jpinfect_read_confirmed validates arguments", {
   )
 
   # Case 2: Directory without 'type'
-  temp_dir <- file.path(tempdir(), "test_directory")
-  dir.create(temp_dir, showWarnings = FALSE)
-
   expect_error(
     jpinfect_read_confirmed(path = temp_dir),
     "The 'type' argument is required when processing a directory and must be specified as either 'sex' or 'place'."
@@ -101,8 +98,6 @@ test_that("jpinfect_read_confirmed validates arguments", {
     "Invalid 'type' argument: must be either 'sex' or 'place'."
   )
 
-  # Clean up
-  unlink(temp_dir, recursive = TRUE)
 })
 
 
@@ -123,10 +118,6 @@ test_that("jpinfect_read_confirmed processes files and directories correctly", {
   )
   unlink(temp_file)
 
-  # Setup temporary directory
-  temp_dir <- file.path(tempdir(), "jpinfect_test_dir")
-  dir.create(temp_dir, showWarnings = FALSE)
-
   with_mocked_bindings(
     .jpinfect_read_excels = function(type, directory, ...) {
       data.frame(mock = TRUE, type = type)
@@ -137,6 +128,7 @@ test_that("jpinfect_read_confirmed processes files and directories correctly", {
       expect_equal(result$type, "place")
     }
   )
-  unlink(temp_dir, recursive = TRUE)
 })
 
+# Cleanup temporary directory
+unlink(temp_dir, recursive = TRUE)

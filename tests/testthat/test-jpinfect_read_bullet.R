@@ -33,7 +33,8 @@ test_that("jpinfect_read_bullet throws error when no files found", {
 # Test: Invalid language
 test_that("jpinfect_read_bullet throws error for invalid language", {
   expect_error(
-    jpinfect_read_bullet(year = 2025, directory = temp_dir, language = "invalid"),
+    jpinfect_read_bullet(year = 2025, directory = temp_data_dir, language = "invalid"),
     "Invalid language specified. Use 'en' for English or 'jp'."
   )
 })
+

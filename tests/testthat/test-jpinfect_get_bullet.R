@@ -1,8 +1,8 @@
-test_that("jpinfect_get_bullet handles errors correctly", {
-  # Temporary directory for testing
-  temp_dir <- file.path(tempdir(), "jpinfect_get_bullet_test")
-  dir.create(temp_dir, showWarnings = FALSE)
+# Temporary directory for testing
+temp_dir <- file.path(tempdir(), "test_jpinfect_get_bullet")
+dir.create(temp_dir, showWarnings = FALSE)
 
+test_that("jpinfect_get_bullet handles errors correctly", {
   # Test case 1: Missing year (error expected)
   expect_error(
     jpinfect_get_bullet(year = NULL, week = 1:10, language = "en", dest_dir = temp_dir),
@@ -28,13 +28,10 @@ test_that("jpinfect_get_bullet handles errors correctly", {
     "Invalid language specified. Use 'en' for English or 'jp' for Japanese."
   )
 
-  unlink(temp_dir, recursive = TRUE) # Clean up temporary files
 })
 
-test_that("jpinfect_get_bullet downloads files correctly", {
-  # Temporary directory for testing
-  temp_dir <- file.path(tempdir(), "test_jpinfect_get_bullet")
-  dir.create(temp_dir, showWarnings = FALSE)
+test_that("jpinfect_get_bullet downloads files correctly (skip_on_cran)", {
+  skip_on_cran()  # Skip this test on CRAN
 
   # Simulate valid English download
   expect_message(
@@ -56,13 +53,10 @@ test_that("jpinfect_get_bullet downloads files correctly", {
   downloaded_file_jp <- file.path(temp_dir, "2025_01_zensu_jp.csv")
   expect_true(file.exists(downloaded_file_jp))
 
-  # Clean up after tests
-  unlink(temp_dir, recursive = TRUE)
 })
 
-test_that("jpinfect_get_bullet handles overwriting correctly", {
-  temp_dir <- file.path(tempdir(), "test_jpinfect_get_bullet")
-  dir.create(temp_dir, showWarnings = FALSE)
+test_that("jpinfect_get_bullet handles overwriting correctly (skip_on_cran)", {
+  skip_on_cran()  # Skip this test on CRAN
 
   # Simulate an existing file
   existing_file <- file.path(temp_dir, "2025_01_zensu_en.csv")
@@ -82,18 +76,15 @@ test_that("jpinfect_get_bullet handles overwriting correctly", {
     fixed = TRUE
   )
 
-  unlink(temp_dir, recursive = TRUE) # Clean up temporary files
 })
 
 test_that("jpinfect_get_bullet handles unavailable data gracefully", {
-  temp_dir <- file.path(tempdir(), "test_jpinfect_get_bullet")
-  dir.create(temp_dir, showWarnings = FALSE)
-
   # Simulate unavailable data
   expect_message(
     jpinfect_get_bullet(year = 2025, week = 53, language = "en", dest_dir = temp_dir, overwrite = TRUE),
     "JIHS data is not available for week 53 in year 2025."
   )
-
-  unlink(temp_dir, recursive = TRUE) # Clean up temporary files
 })
+
+# Clean up after tests
+unlink(temp_dir, recursive = TRUE)

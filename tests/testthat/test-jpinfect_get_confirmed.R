@@ -47,4 +47,4 @@ test_that("jpinfect_get_confirmed behaves correctly with invalid years", {
 })
 
 # delete temp directory
-# unlink(temp_dir, recursive = TRUE)
+unlink(temp_dir, recursive = TRUE)
