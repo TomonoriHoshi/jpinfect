@@ -268,7 +268,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 #' @importFrom dplyr bind_rows relocate mutate
 #' @importFrom stringr str_detect
 #' @keywords internal
-.jpinfect_read_excels <- function(type, directory = "raw_data") {
+.jpinfect_read_excels <- function(type, directory) {
   # type errors
   if(!type %in% c("sex","place")) {
     stop("type must be either \"sex\" or \"place\"")
@@ -287,7 +287,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
     stop(paste0("Cannot found dataset in \"", directory, "\""))
   }
 
-  message("Processing", length(local_files), "files:\n")
+  message("Processing ", length(local_files), " files:\n")
 
   message(paste(local_files, collapse = "\n"))
 

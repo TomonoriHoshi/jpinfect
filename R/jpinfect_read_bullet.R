@@ -5,7 +5,7 @@
 #'
 #' @param year An integer specifying the year of the data files to process. If NULL, all years available in the directory are processed.
 #' @param week A numeric vector specifying the weeks to process (default is 1:53).
-#' @param directory A string specifying the directory containing the JIHS data files (default is `"raw_data"`).
+#' @param directory  A string specifying the directory containing the JIHS data files (required).
 #' @param language A character string specifying the language of the data ('en' for English, 'jp' for Japanese). Default is 'en'.
 #' @param output_file A string specifying the file name to save the combined data. If NULL, the combined data is not saved (default is NULL).
 #'
@@ -44,7 +44,14 @@
 #' @importFrom ISOweek ISOweek2date
 #'
 #' @export
-jpinfect_read_bullet <- function(year = NULL, week = 1:53, directory = "raw_data", language = "en", output_file = NULL) {
+jpinfect_read_bullet <- function(year = NULL, week = 1:53, directory, language = "en", output_file = NULL) {
+  if (missing(directory)) {
+    stop("The 'directory' argument is required. Please specify the directory containing the data files.")
+  }
+  if (!dir.exists(directory)) {
+    stop(paste("Directory does not exist:", directory))
+  }
+
   if (language == "en") {
     file_pattern <- "_zensu_en.csv"
     skip <- 3

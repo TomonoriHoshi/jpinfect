@@ -7,7 +7,7 @@
 jpinfect_read_bullet(
   year = NULL,
   week = 1:53,
-  directory = "raw_data",
+  directory,
   language = "en",
   output_file = NULL
 )
@@ -17,7 +17,7 @@ jpinfect_read_bullet(
 
 \item{week}{A numeric vector specifying the weeks to process (default is 1:53).}
 
-\item{directory}{A string specifying the directory containing the JIHS data files (default is `"raw_data"`).}
+\item{directory}{A string specifying the directory containing the JIHS data files (required).}
 
 \item{language}{A character string specifying the language of the data ('en' for English, 'jp' for Japanese). Default is 'en'.}
 

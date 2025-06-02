@@ -4,7 +4,7 @@
 \alias{.jpinfect_read_excels}
 \title{Process Multiple Excel Files}
 \usage{
-.jpinfect_read_excels(type, directory = "raw_data")
+.jpinfect_read_excels(type, directory)
 }
 \arguments{
 \item{type}{A character string specifying the type of data to import. Must be either \code{"sex"} or \code{"place"}.}
