@@ -24,10 +24,12 @@
 #' @examples
 #' \donttest{
 #' # Process a single file
-#' data <- jpinfect_read_confirmed("path/to/file.xls")
+#' data_file <- system.file("extdata", "1999_Syu_11.xls", package = "jpinfect")
+#' data_single <- jpinfect_read_confirmed(data_file)
 #'
 #' # Process all files in a directory
-#' data <- jpinfect_read_confirmed("path/to/directory", type = "place")
+#' data_dir <- system.file("extdata", package = "jpinfect")
+#' data_multiple <- jpinfect_read_confirmed(data_dir, type = "place")
 #' }
 #'
 #' @importFrom stringr str_extract str_detect

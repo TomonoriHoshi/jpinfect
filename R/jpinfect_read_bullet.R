@@ -21,17 +21,15 @@
 #'
 #' @examples
 #' \donttest{
-#' # Process data for 2025, weeks 1 to 10, in English, and save the output
-#' combined_data <- jpinfect_read_bullet(year = 2025, week = 1:10,
-#'                                          directory = "raw_data", language = "en",
-#'                                          output_file = "processed_2025.csv")
+#' # Get path to example data files
+#' data_dir <- system.file("extdata", package = "jpinfect")
 #'
-#' # Process Japanese data for all available years in the directory
-#' combined_data <- jpinfect_read_bullet(directory = "raw_data", language = "jp")
+#' # Process data for 2025, weeks 1 to 2, in English
+#' combined_data <- jpinfect_read_bullet(year = 2025, week = 1:2,
+#'                                          directory = data_dir,
+#'                                          language = "en",
+#'                                          output_file = tempfile("output.csv"))
 #'
-#' # Process data for 2023, weeks 5 to 15, without saving the output
-#' combined_data <- jpinfect_read_bullet(year = 2023, week = 5:15,
-#'                                          directory = "raw_data", language = "en")
 #' }
 #'
 #' @importFrom stringr str_extract str_pad
@@ -134,7 +132,8 @@ jpinfect_read_bullet <- function(year = NULL, week = 1:53, directory, language =
 
   # Output to file (if specified)
   if (!is.null(output_file)) {
-    write_csv(combined_data, file.path(directory, output_file))
+    # write_csv(combined_data, file.path(directory, output_file))
+    write_csv(combined_data, output_file)
   }
 
   # Return combined data

@@ -47,15 +47,15 @@ for a specified year and weeks, based on the chosen language (English or Japanes
 }
 \examples{
 \donttest{
-# Download English data for weeks 1 to 5 in 2025
-jpinfect_get_bullet(year = 2025, week = 1:5, language = "en", dest_dir = "raw_data")
+# Download English data for weeks 1 to 2 in 2025
+jpinfect_get_bullet(year = 2025, week = 1:2, language = "en")
 
-# Download Japanese data for all weeks in 2025
-jpinfect_get_bullet(year = 2025, language = "jp", dest_dir = "raw_data")
+# Download Japanese data for weeks 1 to 2 in 2025
+jpinfect_get_bullet(year = 2025, week = 1:2, language = "jp")
 
-# Overwrite existing files and download English data for weeks 10 to 15 in 2025
-jpinfect_get_bullet(year = 2025, week = 10:15, language = "en",
-                     overwrite = TRUE, dest_dir = "raw_data")
+# Overwrite existing files and download English data for week 2 in 2025
+jpinfect_get_bullet(year = 2025, week = 2, language = "en",
+                     overwrite = TRUE)
 }
 
 }
