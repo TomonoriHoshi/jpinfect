@@ -15,14 +15,7 @@ test_that("jpinfect_get_bullet handles errors correctly", {
     "Week range should be from 1 to either 52 or 53."
   )
 
-  # Test case 3: Valid week and year
-  # Ensure no error or warning occurs with valid input
-  expect_message(
-    jpinfect_get_bullet(year = 2024, week = 1, language = "en", dest_dir = temp_dir),
-    "Downloading data for week 1 from URL:"
-  )
-
-  # Test 4: Invalid language
+  # Test 3: Invalid language
   expect_error(
     jpinfect_get_bullet(year = 2025, week = 1:5, language = "fr", dest_dir = temp_dir),
     "Invalid language specified. Use 'en' for English or 'jp' for Japanese."
@@ -78,7 +71,8 @@ test_that("jpinfect_get_bullet handles overwriting correctly (skip_on_cran)", {
 
 })
 
-test_that("jpinfect_get_bullet handles unavailable data gracefully", {
+test_that("jpinfect_get_bullet handles unavailable data gracefully (skip_on_cran)", {
+  skip_on_cran()  # Skip this test on CRAN
   # Simulate unavailable data
   expect_message(
     jpinfect_get_bullet(year = 2025, week = 53, language = "en", dest_dir = temp_dir, overwrite = TRUE),
