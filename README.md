@@ -1,6 +1,7 @@
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/jpinfect)](https://cran.r-project.org/package=jpinfect)
  [![status](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92/status.svg)](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92)
 <!-- badges: end -->
 
