@@ -1,6 +1,7 @@
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/jpinfect)](https://cran.r-project.org/package=jpinfect)
  [![status](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92/status.svg)](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92)
 <!-- badges: end -->
 
@@ -22,10 +23,15 @@ Data sourced from the Japan Institute for Health Security (JIHS). Data provided 
 
 ## Installation
 
-The `jpinfect` package can be installed from GitHub using the [remotes](https://github.com/r-lib/remotes/) package. To install the package, run the following command in your R console:
+The `jpinfect` package can be installed from either CRAN or GitHub using the [remotes](https://github.com/r-lib/remotes/) package. Through the Github repository, the latest Provisional weekly Case Reports (bullet) data can be acquired, which may not be available on CRAN. To install the package, run the following command in your R console:
 
+**From CRAN**
 ``` r
-# install.packages("jpinfect")
+install.packages("jpinfect")
+```
+
+**From Github**
+``` r
 if(!require("remotes")) install.packages("remotes")
 remotes::install_github("TomonoriHoshi/jpinfect")
 ```
