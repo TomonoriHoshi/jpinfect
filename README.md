@@ -56,11 +56,11 @@ library(jpinfect)
 
 The following datasets are included in this package and sourced from the Japan Institute for Health Security (JIHS). These datasets are:
 
--   `sex_prefecture`: Confirmed weekly case reports on the sex distribution of reported cases by prefecture from 1999 to 2022. For further details, run `?sex_prefecture`.
+-   `sex_prefecture`: Confirmed weekly case reports on the sex distribution of reported cases by prefecture from 1999 to 2023. For further details, run `?sex_prefecture`.
 
--   `place_prefecture`: Confirmed weekly case reports about the place of infection by prefecture between 2001 and 2022. For further details, run `?place_prefecture`.
+-   `place_prefecture`: Confirmed weekly case reports about the place of infection by prefecture between 2001 and 2023. For further details, run `?place_prefecture`.
 
--   `bullet`: Provisional weekly case reported by prefecture from 2022 to the current latest reports. For further details, run `?bullet`.
+-   `bullet`: Provisional weekly case reported by prefecture from 2024 to the current latest reports. For further details, run `?bullet`.
 
 ``` r
 # Loading build-in datasets
@@ -115,14 +115,14 @@ jpinfect_url_confirmed(year = 2021, type = "place")
 
 ### Data Acquisition
 
-The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the government website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the *raw_data* folder or the specified directory.
+The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the government website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the specified directory (e.g., *raw_data* folder).
 
 ``` r
 # Download data for 2020 and 2021
-jpinfect_get_confirmed(years = c(2020, 2021), type = "sex")
+jpinfect_get_confirmed(years = c(2020, 2021), type = "sex", dest_dir = "raw_data")
 
 # Download data for all available years
-jpinfect_get_confirmed(type = "place")
+jpinfect_get_confirmed(type = "place", dest_dir = "raw_data")
 
 # Download English data for weeks 1 to 5 in 2025
 jpinfect_get_bullet(year = 2025, week = 1:5, dest_dir = "raw_data")
