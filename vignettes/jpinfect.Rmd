@@ -61,10 +61,15 @@ The `jpinfect` package depends on the following R packages:
 
 ## Installation
 
-The `jpinfect` package can be installed from GitHub using the [remotes](https://github.com/r-lib/remotes) package. To install the package, run the following command in your R console:
+The `jpinfect` package can be installed from either CRAN or GitHub using the [remotes](https://github.com/r-lib/remotes) package. Through the Github repository, the latest Provisional weekly Case Reports (bullet) data can be acquired, which may not be available on CRAN. To install the package, run the following command in your R console:
 
+From CRAN:
 ```{r, message = FALSE, warning = FALSE, eval = FALSE}
-# install.packages("jpinfect")
+install.packages("jpinfect")
+```
+
+From GitHub (for the latest version):
+```{r, message = FALSE, warning = FALSE, eval = FALSE}
 if(!require("remotes")) install.packages("remotes")
 remotes::install_github("TomonoriHoshi/jpinfect")
 ```
@@ -81,11 +86,11 @@ library(jpinfect)
 
 The `jpinfect` package includes three built-in datasets that can be used to start immediate data analysis. These datasets are:
 
--   `sex_prefecture`: Confirmed weekly case reports on the sex distribution of reported cases by prefecture from 1999 to 2022.
+-   `sex_prefecture`: Confirmed weekly case reports on the sex distribution of reported cases by prefecture from 1999 to 2023.
 
--   `place_prefecture`: Confirmed weekly case reports about the place of infection by prefecture between 2001 and 2022.
+-   `place_prefecture`: Confirmed weekly case reports about the place of infection by prefecture between 2001 and 2023.
 
--   `bullet`: Provisional weekly case reported by prefecture from 2022 to the current latest reports.
+-   `bullet`: Provisional weekly case reported by prefecture from 2024 to the current latest reports.
 
 These datasets are provided in a tidy format, making them easy to work with using the `dplyr` and `tidyr` packages.
 

@@ -27,12 +27,12 @@ Data sourced from the Japan Institute for Health Security (JIHS). Data provided 
 
 The `jpinfect` package can be installed from either CRAN or GitHub using the [remotes](https://github.com/r-lib/remotes/) package. Through the Github repository, the latest Provisional weekly Case Reports (bullet) data can be acquired, which may not be available on CRAN. To install the package, run the following command in your R console:
 
-**From CRAN**
+**From CRAN:**
 ``` r
 install.packages("jpinfect")
 ```
 
-**From Github**
+**From GitHub (for the latest version):**
 ``` r
 if(!require("remotes")) install.packages("remotes")
 remotes::install_github("TomonoriHoshi/jpinfect")
