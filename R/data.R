@@ -31,9 +31,9 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' @description
 #' This dataset contains information about the place of infection by prefecture,
 #' sourced from the Japan Institute for Health Security (JIHS). The data is between
-#' 2001 and 2022.
+#' 2001 and 2023.
 #'
-#' @format A data frame with 55056 rows and 419 columns.
+#' @format A data frame with 57553 rows and 420 columns.
 #' \describe{
 #' \item{prefecture}{Case numbers for prefecture}
 #' \item{year}{Case numbers for year}
@@ -467,9 +467,9 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' @description
 #' This dataset contains demographic information on sex by prefecture,
 #' sourced from the Japan Institute for Health Security (JIHS).  The data ranges between
-#' 1999 and 2022.
+#' 1999 and 2023.
 #'
-#' @format A data frame with 59424 rows and 318 columns.
+#' @format A data frame with 61920 rows and 319 columns.
 #' \describe{
 #' \item{prefecture}{Case numbers for prefecture}
 #' \item{year}{Case numbers for year}
@@ -804,7 +804,7 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' sourced from The Japan Institute for Health Security (JIHS).The specific date range
 #' provided are subject to updates.
 #'
-#' @format A data frame with 5616 rows and 181 columns.
+#' @format A data frame with 3888 rows and 352 columns.
 #' \describe{
 #' \item{prefecture}{Case numbers for prefecture}
 #' \item{year}{Case numbers for year}

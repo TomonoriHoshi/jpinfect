@@ -5,7 +5,7 @@
 \alias{place_prefecture}
 \title{Place Prefecture Data}
 \format{
-A data frame with 55056 rows and 419 columns.
+A data frame with 57553 rows and 420 columns.
 \describe{
 \item{prefecture}{Case numbers for prefecture}
 \item{year}{Case numbers for year}
@@ -438,6 +438,6 @@ place_prefecture
 \description{
 This dataset contains information about the place of infection by prefecture,
 sourced from the Japan Institute for Health Security (JIHS). The data is between
-2001 and 2022.
+2001 and 2023.
 }
 \keyword{datasets}

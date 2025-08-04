@@ -5,7 +5,7 @@
 \alias{sex_prefecture}
 \title{Sex Prefecture Data}
 \format{
-A data frame with 59424 rows and 318 columns.
+A data frame with 61920 rows and 319 columns.
 \describe{
 \item{prefecture}{Case numbers for prefecture}
 \item{year}{Case numbers for year}
@@ -337,6 +337,6 @@ sex_prefecture
 \description{
 This dataset contains demographic information on sex by prefecture,
 sourced from the Japan Institute for Health Security (JIHS).  The data ranges between
-1999 and 2022.
+1999 and 2023.
 }
 \keyword{datasets}
