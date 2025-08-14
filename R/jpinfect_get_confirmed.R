@@ -38,13 +38,19 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
     stop("type must be either \"sex\" or \"place\"")
   }
 
+  # Validate years parameter
   # As of 16 March 2025
   max_available_year <- 2023
-  min_available_year <- 1999
+
+  if (type == "sex") {
+    min_available_year <- 1999
+  } else if (type == "place") {
+    min_available_year <- 2001
+  }
 
   # If no years specified, use the most recent available year
   if(is.null(years)) {
-    years <- min_available_year
+    years <- min_available_year:max_available_year
   }
 
   # Filter and validate years
@@ -63,7 +69,7 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
     stop("No valid years provided. Available years are from 1999 to 2023.")
   }
 
-  # Create destination directory if it doesn't exist
+  # Create temporal destination directory if it doesn't exist
   if(is.null(dest_dir)) {
     dest_dir <- tempdir()
     warning(
@@ -73,6 +79,16 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
       call. = FALSE
     )
   }
+
+  # Ensure the destination directory exists
+  if (!is.null(dest_dir)) {
+    if (!dir.exists(dest_dir)) {
+      message(sprintf("Directory '%s' does not exist. Please create it manually.", dest_dir))
+      return(NULL)
+    }
+  }
+
+
 
   # Download files for valid years using sapply
   download_results <- sapply(valid_years, function(year) {
