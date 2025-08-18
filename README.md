@@ -1,3 +1,9 @@
+---
+output:
+  html_document: default
+  pdf_document: default
+---
+
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
@@ -43,12 +49,6 @@ Load the package after installation:
 
 ``` r
 library(jpinfect)
-#> jpinfect package loaded successfully. Timezone set to Asia/Tokyo.
-#> Note: Data accuracy depends on the original source.
-#> Data sourced from the Japan Institute for Health Security (JIHS).
-#> Usage is subject to their open data policy (Government Standard Terms of Use v1.0).
-#> Details: https://id-info.jihs.go.jp/usage-contract.html
-#> This library is independently developed and is not affiliated with any government entity.
 ```
 
 ## Usage
@@ -152,6 +152,27 @@ bullet <- jpinfect_read_bullet(directory = "raw_data")
 # Import specific period of the data for 2025, weeks 1 to 10
 bullet2025 <- jpinfect_read_bullet(year = 2025, week = 1:10, directory = "raw_data")
 ```
+
+### Example Usage
+
+The following example demonstrates how to use the `jpinfect` package to visualise the latest provisional weekly case reports in Japan. Specifically, it plots the provisional weekly number of *Enterohemorrhagic Escherichia coli infections*.
+
+``` r
+with(
+    subset(bullet, prefecture == "Total"),
+    barplot(
+        `Enterohemorrhagic Escherichia coli infection (weekly)`, # Selected column name in bullet dataset
+        names.arg = date,
+        space = 0,
+        xlab = c("\n", "\n", "\n", "Week"), # Add line breaks to move the x-axis label down
+        ylab = "Provisional weekly cases",
+        main = "Recent Weekly Enterohemorrhagic Escherichia Coli infection in Japan",
+        las = 2
+        )
+)
+```
+
+![Example plot](plot_example.png)
 
 ## Community guidelines
 
