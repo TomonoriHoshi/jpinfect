@@ -92,6 +92,8 @@ The `jpinfect` package provides an efficient and streamlined pipeline for acquir
 
 ![](Figure.png)
 
+During package development, we used GitHub Copilot within RStudio to assist with coding, and Microsoft Copilot to support both coding and debugging. 
+
 # Acknowledgements
 
 We acknowledge the Japan Institute for Health Security to distribute public data. Without their dedicated efforts to maintain the dataset available and updates, this package could not be developed.
