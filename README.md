@@ -1,10 +1,9 @@
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
-[![CRAN status](https://www.r-pkg.org/badges/version/jpinfect)](https://cran.r-project.org/package=jpinfect)
-[![status](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92/status.svg)](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92)
-[![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/jpinfect)](https://cran.r-project.org/package=jpinfect)
-[![CRAN downloads](https://cranlogs.r-pkg.org/badges/jpinfect)](https://cran.r-project.org/package=jpinfect)
+
+[![CRAN status](https://www.r-pkg.org/badges/version/jpinfect)](https://cran.r-project.org/package=jpinfect) [![status](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92/status.svg)](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92) [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/jpinfect)](https://cran.r-project.org/package=jpinfect) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/jpinfect)](https://cran.r-project.org/package=jpinfect)
+
 <!-- badges: end -->
 
 The `jpinfect` package provides tools for acquiring and processing notifiable infectious disease data in Japan. It is designed to help researchers, public health officials and developers access, clean, and manipulate data. This package aims to streamline data analysis processes while enabling reproducible research in public health and epidemiology.
@@ -28,11 +27,13 @@ Data sourced from the Japan Institute for Health Security (JIHS). Data provided 
 The `jpinfect` package can be installed from either CRAN or GitHub using the [remotes](https://github.com/r-lib/remotes/) package. Through the Github repository, the latest Provisional weekly Case Reports (bullet) data can be acquired, which may not be available on CRAN. To install the package, run the following command in your R console:
 
 **From CRAN:**
+
 ``` r
 install.packages("jpinfect")
 ```
 
 **From GitHub (for the latest version):**
+
 ``` r
 if(!require("remotes")) install.packages("remotes")
 remotes::install_github("TomonoriHoshi/jpinfect")
@@ -152,24 +153,8 @@ bullet <- jpinfect_read_bullet(directory = "raw_data")
 bullet2025 <- jpinfect_read_bullet(year = 2025, week = 1:10, directory = "raw_data")
 ```
 
-## Report a bug
+## Community guidelines
 
-If you encounter a bug or issue while using the `jpinfect` package, we encourage you to report it. Please follow the steps below to help us resolve the problem efficiently:
+If you encounter a bug or issue while using the `jpinfect` package, we encourage you to report it [here](https://github.com/TomonoriHoshi/jpinfect/issues). If you are happy to contribute the package, please see our [contributing guidelines](CONTRIBUTING.md).
 
-1.  **Check Existing Issues**: Before submitting a new bug report, visit the Issues page on GitHub to check if the issue has already been reported.
-
-2.  **Submit a New Issue**: If the issue is new, create a detailed report by clicking on the **"New Issue"** button. Include the following information:
-
-    -   A clear description of the issue or unexpected behaviour.
-
-    -   Steps to reproduce the issue, if possible.
-
-    -   Your R version and operating system (e.g., Windows 10, macOS Ventura).
-
-    -   Any relevant error messages or output.
-
-    -   Example code or datasets (if applicable) to demonstrate the problem.
-
-3.  **Follow-Up**: We appreciate your feedback! Once your issue is submitted, we may ask for additional information to resolve it. Please check back periodically for updates.
-
-By contributing bug reports, you help us improve the `jpinfect` package for everyone. Thank you for your support!
+We expect all contributors to adhere to the [Code of Conduct](CODE_OF_CONDUCT.md) to ensure a welcoming and inclusive environment for everyone.
