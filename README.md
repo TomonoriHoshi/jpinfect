@@ -1,9 +1,3 @@
----
-output:
-  html_document: default
-  pdf_document: default
----
-
 # jpinfect: Notifiable Infectious Diseases in Japan
 
 <!-- badges: start -->
