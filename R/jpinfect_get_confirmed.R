@@ -83,8 +83,7 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
   # Ensure the destination directory exists
   if (!is.null(dest_dir)) {
     if (!dir.exists(dest_dir)) {
-      message(sprintf("Directory '%s' does not exist. Please create it manually.", dest_dir))
-      return(NULL)
+      stop(sprintf("Directory '%s' does not exist. Please create it manually.", dest_dir))
     }
   }
 

@@ -110,7 +110,13 @@ jpinfect_url_confirmed(year = 2021, type = "place")
 
 ### Data Acquisition
 
-The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the government website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently. The downloaded files are saved under the specified directory (e.g., *raw_data* folder).
+The raw data can be downloaded using `jpinfect_get_confirmed` for confirmed case reports and `jpinfect_get_bullet` for provisional case reports, respectively. Confirmed weekly case data is organised into a single Microsoft Excel file for each year, while provisional data is provided as separate CSV files for each week. Since this function connect to the government website, it may take some time to download the data. To avoid excessive burden on the server, please kindly avoid downloading the files frequently.
+
+The downloaded files are saved under the specified directory (e.g., *raw_data* folder).
+
+**Please ensure that the destination directory exists prior to execution**, as the function does not create directories automatically. This behaviour complies with CRAN policy, which prohibits packages from creating directories within the user's environment.
+
+If no destination is specified, the datasets will be stored in a temporary folder. Please note that this folder is session-specific and will be deleted once the R session is closed.
 
 ``` r
 # Download data for 2020 and 2021

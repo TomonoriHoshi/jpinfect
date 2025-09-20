@@ -52,7 +52,7 @@ jpinfect_get_bullet <- function(year = NULL, week = 1:53, language = "en", overw
     stop("Week range should be from 1 to either 52 or 53.")
   }
 
-  # Create destination directory if it doesn't exist
+  # Create destination directory if it doesn't exist. Also, if a destination is specified, ensure it exists.
   if (is.null(dest_dir)) {
     dest_dir <- tempdir()
     warning(
@@ -61,7 +61,12 @@ jpinfect_get_bullet <- function(year = NULL, week = 1:53, language = "en", overw
       "jpinfect_get_confirmed(..., dest_dir = 'my_data_folder')",
       call. = FALSE
     )
+  } else {
+    if (!dir.exists(dest_dir)) {
+      stop(sprintf("Directory '%s' does not exist. Please create it manually.", dest_dir))
+    }
   }
+
 
   # Generate URLs using jpinfect_url_bullet
   urls <- jpinfect_url_bullet(year = year, week = week, language = language)
