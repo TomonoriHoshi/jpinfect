@@ -97,6 +97,14 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
     stop("The 'file_path' is empty. Please specify a valid file path.")
   }
 
+  # file size check
+  file_size <- file.info(file_path)$size
+  if (!is.na(file_size) && file_size < 2000000) {
+    stop(paste("The file size is unusually small (< 2000 KB) and may be corrupted.\n",
+                "This may indicate a failed or incomplete download.\n",
+                "Please re-run jpinfect_get_confirmed() to re-download the file."))
+  }
+
   message("Processing...", appendLF = FALSE)
 
   # year check
@@ -287,6 +295,16 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 
   if (length(local_files) == 0) {
     stop(paste0("Cannot found dataset in \"", directory, "\""))
+  }
+
+  # file size check
+  valid_files <- local_files[file.info(local_files)$size >= 2000000]
+  invalid_files <- setdiff(local_files, valid_files)
+  if (length(invalid_files) > 0) {
+    stop(paste0("The following files are unusually small (< 2000 KB) and may be corrupted:\n",
+                paste(invalid_files, collapse = "\n"),
+                "\nThis may indicate a failed or incomplete download.\n",
+                "\nPlease re-run jpinfect_get_confirmed() to re-download them.\n"))
   }
 
   message("Processing ", length(local_files), " files:\n")
