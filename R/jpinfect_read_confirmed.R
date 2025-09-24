@@ -40,6 +40,9 @@
 #' @importFrom ISOweek ISOweek2date
 #' @export
 jpinfect_read_confirmed <- function(path, type = NULL, ...) {
+  # Return path location
+  message("Current working directory: ", getwd())
+
   # Single file: Check if it's a file but not a directory
   if (file.exists(path) && !dir.exists(path)) {
     return(.jpinfect_read_excel(path, ...))
@@ -57,7 +60,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   }
 
   # Invalid path
-  stop("Invalid path: must be either a file or directory")
+  stop("Invalid path: no file or directory could be located. Please verify that the specified path is correct.")
 }
 
 
