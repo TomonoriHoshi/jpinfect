@@ -106,22 +106,26 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
       return(dest_file)
     }
 
-    # Attempt to download
+    # Attempt to download: 3 repeats if Download fails
     tryCatch({
-      message(paste0("Downloading: ", url))
+      for (i in 1:3) {
+        # delay to access the JIHS server
+        Sys.sleep(5)
+        suppressWarnings(download.file(url, destfile = dest_file, mode = "wb"))
+        first_bytes <- readBin(dest_file, "raw", 100)
+        if (!grepl("<html", raw)) break
+        file.remove(dest_file)
+        message(sprintf("Retrying download (%d/3)...", i))
+        }
 
-      # delay to access the JIHS server
-      Sys.sleep(5)
-
-      download.file(url, destfile = dest_file, mode = "wb")
+      if (!file.exists(dest_file)) return(NULL)
       message(paste0("Download completed: ", dest_file))
       return(dest_file)
-    },
-    error = function(e) {
-      warning(paste0("Download failed: ", url, "\nPlease check the server status or try again later."))
-      return(NULL)
+      }, error = function(e) {
+        message(paste0("Download failed: ", url, "\nPlease check the server status or try again later."))
+        return(NULL)
+        })
     })
-  })
 
   return(download_results)
 }
