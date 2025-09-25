@@ -102,16 +102,38 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
 
     # Check if file already exists
     if(file.exists(dest_file) && !overwrite) {
+      file_size <- file.info(dest_file)$size
+      if (!is.na(file_size) && file_size >= 2000 * 1024) { # Expecting > 2MB
       message(paste0("File already exists: ", dest_file))
       return(dest_file)
+      }
+      unlink(dest_file) # Remove incomplete or small file
     }
 
     # Attempt to download: 3 repeats if Download fails
     tryCatch({
+      old_timeout <- getOption("timeout")
+      options(timeout = 180)
+      on.exit(options(timeout = old_timeout), add = TRUE)
+
       for (i in 1:3) {
         # delay to access the JIHS server
         Sys.sleep(5)
         suppressWarnings(download.file(url, destfile = dest_file, mode = "wb"))
+
+        # Check if the file was downloaded
+        if (!file.exists(dest_file)) {
+          message(sprintf("Retrying download (%d/3)... (no file)", i))
+          next
+        }
+
+        # Check file size (expecting > 2MB)
+        file_size <- file.info(dest_file)$size
+        if (is.na(file_size) || file_size < 2000 * 1024) { # 2MB
+          file.remove(dest_file)
+          message(sprintf("Retrying download (%d/3)... (file too small: %s bytes)", i, file_size))
+          next
+        }
 
         # Check if the downloaded file is an HTML error page
         first_bytes <- readBin(dest_file, "raw", 100)
@@ -126,6 +148,7 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
       if (!file.exists(dest_file)) return(NULL)
       message(paste0("Download completed: ", dest_file))
       return(dest_file)
+
       }, error = function(e) {
         message(paste0("Download failed: ", url, "\nPlease check the server status or try again later."))
         return(NULL)
