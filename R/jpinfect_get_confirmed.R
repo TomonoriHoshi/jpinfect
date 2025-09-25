@@ -17,8 +17,8 @@
 #' For each year, the function attempts to download the corresponding file from JIHS.
 #' If a file already exists and \code{overwrite = FALSE}, the download is skipped.
 #'
-#' @return A character vector of file paths for successfully downloaded files. If
-#' a file download fails, the function returns \code{NULL} for that year.
+#' @return A named list mapping each requested year to its downloaded file path.
+#' Successful years contain a character path; failed years are \code{NULL}.
 #'
 #' @examples
 #' \donttest{
@@ -111,49 +111,82 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
     }
 
     # Attempt to download: 3 repeats if Download fails
-    tryCatch({
-      old_timeout <- getOption("timeout")
-      options(timeout = 180)
-      on.exit(options(timeout = old_timeout), add = TRUE)
+    old_timeout <- getOption("timeout")
+    options(timeout = 180)
+    on.exit(options(timeout = old_timeout), add = TRUE)
 
-      for (i in 1:3) {
-        # delay to access the JIHS server
-        Sys.sleep(5)
-        suppressWarnings(download.file(url, destfile = dest_file, mode = "wb"))
+    success <- FALSE
+    for (i in 1:3) {
+      # delay to access the JIHS server
+      Sys.sleep(5)
 
-        # Check if the file was downloaded
-        if (!file.exists(dest_file)) {
-          message(sprintf("Retrying download (%d/3)... (no file)", i))
-          next
+      if (i == 1) {
+        # Message only on the first attempt
+        message(sprintf("Downloading: %s", url))
+      }
+
+      status <- suppressWarnings(
+        download.file(url, destfile = dest_file, mode = "wb", quiet = TRUE)
+        )
+
+      # Check download status
+      if (!identical(status, 0L)) {
+        if (file.exists(dest_file)) unlink(dest_file)
+        message(sprintf("Retrying download (%d/3)... (status=%s)", i, status))
+        next
         }
 
-        # Check file size (expecting > 2MB)
-        file_size <- file.info(dest_file)$size
-        if (is.na(file_size) || file_size < 2000 * 1024) { # 2MB
-          file.remove(dest_file)
-          message(sprintf("Retrying download (%d/3)... (file too small: %s bytes)", i, file_size))
-          next
+      # Check if the file was downloaded
+      if (!file.exists(dest_file)) {
+        message(sprintf("Retrying download (%d/3)... (no file)", i))
+        next
         }
 
-        # Check if the downloaded file is an HTML error page
-        first_bytes <- readBin(dest_file, "raw", 100)
-        txt <- tolower(suppressWarnings(rawToChar(first_bytes)))
-        html_signatures <- c("<html", "<!doctype html", "<head", "<body", "<title")
-        if (!any(grepl(paste(html_signatures, collapse = "|"), txt))) break
-
-        file.remove(dest_file)
-        message(sprintf("Retrying download (%d/3)...", i))
+      # Check file size (expecting > 2MB)
+      file_size <- file.info(dest_file)$size
+      if (is.na(file_size) || file_size < 2000 * 1024) { # 2MB
+        unlink(dest_file)
+        message(sprintf("Retrying download (%d/3)... (file too small: %s bytes)", i, file_size))
+        next
         }
 
-      if (!file.exists(dest_file)) return(NULL)
-      message(paste0("Download completed: ", dest_file))
-      return(dest_file)
+      # Check if the downloaded file is an HTML error page
+      first_bytes <- tryCatch(readBin(dest_file, "raw", 100), error = function(e) raw(0))
 
-      }, error = function(e) {
-        message(paste0("Download failed: ", url, "\nPlease check the server status or try again later."))
-        return(NULL)
-        })
-    })
+      # Check for XLSX (PK...) or XLS (D0 CF 11 E0) signatures
+      is_xlsx <- length(first_bytes) >= 2 && identical(first_bytes[1:2], charToRaw("PK"))
+      is_xls  <- length(first_bytes) >= 4 && identical(as.integer(first_bytes[1:4]), c(0xD0, 0xCF, 0x11, 0xE0))
 
-  return(download_results)
+      if (!(is_xlsx || is_xls)) {
+        # ASCII check for HTML content
+        ascii_ok <- length(first_bytes) > 0 && all(as.integer(first_bytes) %in% c(9L,10L,13L,32L:126L))
+
+        if (ascii_ok) {
+          # Convert to lowercase text for HTML signature check
+          txt <- tryCatch(tolower(rawToChar(first_bytes, multiple = TRUE)),
+                          error = function(e) "")
+          html_signatures <- c("<html", "<!doctype html", "<head", "<body", "<title")
+          if (any(vapply(html_signatures, function(p) grepl(p, txt, fixed = TRUE), logical(1)))) {
+            unlink(dest_file)
+            message(sprintf("Retrying download (%d/3)... (looks like HTML)", i))
+            next
+          }
+        }
+      }
+
+      success <- TRUE
+      break
+    }
+
+    if (!success || !file.exists(dest_file)) {
+      message(paste0("Download failed: ", url, "\nPlease check the server status or try again later."))
+      return(NULL)
+    }
+
+    message(paste0("Download completed: ", dest_file))
+    return(dest_file)
+
+      })
+
+  return(invisible(download_results))
 }
