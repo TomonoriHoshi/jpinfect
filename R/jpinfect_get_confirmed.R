@@ -125,9 +125,14 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
         message(sprintf("Downloading: %s", url))
       }
 
-      status <- suppressWarnings(
-        download.file(url, destfile = dest_file, mode = "wb", quiet = TRUE)
-        )
+      status <- tryCatch({
+        suppressWarnings(download.file(url, destfile = dest_file, mode = "wb", quiet = TRUE))
+      }, error = function(e) {
+        message("Download failed due to connection error.")
+        return(1L)  # mimic non-zero status
+      })
+
+
 
       # Check download status
       if (!identical(status, 0L)) {
@@ -179,7 +184,12 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
     }
 
     if (!success || !file.exists(dest_file)) {
-      message(paste0("Download failed: ", url, "\nPlease check the server status or try again later."))
+      message(paste0("Download failed: ", url,
+                     "\nPlease check the server status or try again later.",
+                     "\nIf the issue persists, consider using built-in datasets:",
+                     "\n  - sex_prefecture",
+                     "\n  - place_prefecture",
+                     "\n  - bullet"))
       return(NULL)
     }
 
