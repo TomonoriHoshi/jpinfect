@@ -132,9 +132,13 @@ jpinfect_get_bullet(year = 2025, week = 1:5, dest_dir = "raw_data")
 jpinfect_get_bullet(year = 2025, language = "jp", dest_dir = "raw_data")
 ```
 
+**Note**: If the download fails on your local machine, it may succeed in [Posit Cloud](https://posit.cloud/).
+
 ### Data Import
 
 The acquired raw data into your local computer could be imported into R using `jpinfect_read_confirmed` and `jpinfect_read_bullet`.
+
+⚠️**Note**: The import process may require several minutes to complete, particularly when processing large directories. This example may take \~10 minutes.
 
 ``` r
 ## Import confirmed case reports from file or directory
