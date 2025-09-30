@@ -1,3 +1,6 @@
+# Skip file size check during tests
+Sys.setenv(JPINFECT_SKIP_SIZE_CHECK = "true")
+
 # Global setup
 temp_dir <- file.path(tempdir(), "test_jpinfect_data")
 dir.create(temp_dir, showWarnings = FALSE)
@@ -83,7 +86,7 @@ test_that("jpinfect_read_confirmed validates arguments", {
   # Case 1: Invalid path
   expect_error(
     jpinfect_read_confirmed(path = "path/to/file.xls"),
-    "Invalid path: must be either a file or directory"
+    "Invalid path: no file or directory could be located"
   )
 
   # Case 2: Directory without 'type'
