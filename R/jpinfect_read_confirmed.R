@@ -303,7 +303,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   }
 
   # file size check
-  if (!nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) || Sys.getenv("CI") == "true") {
+  if (!(nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) || Sys.getenv("CI") == "true")) {
     valid_files <- local_files[file.info(local_files)$size >= 2000000]
     invalid_files <- setdiff(local_files, valid_files)
     if (length(invalid_files) > 0) {
