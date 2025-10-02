@@ -2,8 +2,13 @@
 
 <!-- badges: start -->
 
+<<<<<<< HEAD
 [![CRAN status](https://www.r-pkg.org/badges/version/jpinfect)](https://cran.r-project.org/package=jpinfect) [![status](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92/status.svg)](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92) [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/jpinfect)](https://cran.r-project.org/package=jpinfect) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/jpinfect)](https://cran.r-project.org/package=jpinfect) [![R-CMD-check](https://github.com/TomonoriHoshi/jpinfect/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/TomonoriHoshi/jpinfect/actions/workflows/R-CMD-check.yaml)
 
+=======
+[![CRAN status](https://www.r-pkg.org/badges/version/jpinfect)](https://cran.r-project.org/package=jpinfect) [![status](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92/status.svg)](https://joss.theoj.org/papers/4953ebf555b62a01098a78374465fa92) [![Total downloads](https://cranlogs.r-pkg.org/badges/grand-total/jpinfect)](https://cran.r-project.org/package=jpinfect) [![CRAN downloads](https://cranlogs.r-pkg.org/badges/jpinfect)](https://cran.r-project.org/package=jpinfect)
+[![R-CMD-check](https://github.com/TomonoriHoshi/jpinfect/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/TomonoriHoshi/jpinfect/actions/workflows/R-CMD-check.yaml)
+>>>>>>> 21932fd6c6f1ed9f9098b86e6e92dd3b08ea2b74
 <!-- badges: end -->
 
 The `jpinfect` package provides tools for acquiring and processing notifiable infectious disease data in Japan. It is designed to help researchers, public health officials and developers access, clean, and manipulate data. This package aims to streamline data analysis processes while enabling reproducible research in public health and epidemiology.
