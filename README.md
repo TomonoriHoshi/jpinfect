@@ -138,7 +138,7 @@ jpinfect_get_bullet(year = 2025, language = "jp", dest_dir = "raw_data")
 
 The acquired raw data into your local computer could be imported into R using `jpinfect_read_confirmed` and `jpinfect_read_bullet`.
 
-⚠️**Note**: The import process may require several minutes to complete, particularly when processing large directories. This example may take \~10 minutes.
+⚠️**Note**: The import process may require several minutes to complete, particularly when processing large directories. This example may take a substantial amount of time depending on your internet connection and computer performance.
 
 ``` r
 ## Import confirmed case reports from file or directory
@@ -150,8 +150,8 @@ place_dataset <- jpinfect_read_confirmed(path = "raw_data", type = "place")
 
 
 ## Import bullet case reports
-# Import all English reports in a directory
-bullet <- jpinfect_read_bullet(directory = "raw_data")
+# Import all English reports in a local directory
+bullet_local <- jpinfect_read_bullet(directory = "raw_data")
 
 # Import specific period of the data for 2025, weeks 1 to 10
 bullet2025 <- jpinfect_read_bullet(year = 2025, week = 1:10, directory = "raw_data")
@@ -177,6 +177,8 @@ with(
 ```
 
 ![Example plot](plot_example.png)
+
+**Note**: The example plot reflects a snapshot of the dataset at the time of writing. Due to periodic updates to built-in data, your results may vary slightly.
 
 ## Community guidelines
 
