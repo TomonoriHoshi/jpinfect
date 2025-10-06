@@ -168,10 +168,11 @@ with(
         `Enterohemorrhagic Escherichia coli infection (weekly)`, # Selected column name in bullet dataset
         names.arg = date,
         space = 0,
-        xlab = c("\n", "\n", "\n", "Week"), # Add line breaks to move the x-axis label down
+        xlab = c("\n", "Week"), # Add line breaks to move the x-axis label down
         ylab = "Provisional weekly cases",
         main = "Recent Weekly Enterohemorrhagic Escherichia Coli infection in Japan",
-        las = 2
+        las = 2,
+        cex.names = 0.6
         )
 )
 ```
