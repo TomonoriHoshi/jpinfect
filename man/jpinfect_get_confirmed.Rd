@@ -24,8 +24,8 @@ or \code{"place"}.}
 Specify a permanent directory to keep downloaded data.}
 }
 \value{
-A character vector of file paths for successfully downloaded files. If
-a file download fails, the function returns \code{NULL} for that year.
+A named list mapping each requested year to its downloaded file path.
+Successful years contain a character path; failed years are \code{NULL}.
 }
 \description{
 This function downloads infectious disease data from the Japan Institute for Health Security (JIHS) for specified years and types.
