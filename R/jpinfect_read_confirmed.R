@@ -101,7 +101,9 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   }
 
   # file size check
-  if (!(nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) || Sys.getenv("CI") == "true")) {
+  if (!(nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) ||
+        Sys.getenv("CI") == "true" ||
+        Sys.getenv("NOT_CRAN") == "" )) {
     file_size <- file.info(file_path)$size
     if (!is.na(file_size) && file_size < 2000000) {
       stop(paste("The file size is unusually small (< 2000 KB) and may be corrupted.\n",
@@ -303,7 +305,9 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   }
 
   # file size check
-  if (!(nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) || Sys.getenv("CI") == "true")) {
+  if (!(nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) ||
+        Sys.getenv("CI") == "true" ||
+        Sys.getenv("NOT_CRAN") == "" )) {
     valid_files <- local_files[file.info(local_files)$size >= 2000000]
     invalid_files <- setdiff(local_files, valid_files)
     if (length(invalid_files) > 0) {
