@@ -16,7 +16,7 @@ authors:
   affiliation: 1, 2
 - name: Erina Ishigaki
   orcid: "0009-0004-4175-6434"
-  affiliation: 1, 3
+  affiliation: 1, 3, 4
 - name: Satoshi Kaneko
   orcid: "0000-0001-9464-0911"
   affiliation: 1, 2, 4, 5
