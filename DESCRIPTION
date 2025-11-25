@@ -1,7 +1,7 @@
 Package: jpinfect
 Type: Package
 Title: Acquiring and Processing Data from Japan Institute for Health Security
-Version: 0.1.6
+Version: 0.1.7
 Authors@R: c(
     person(
       "Tomonori", "Hoshi",
