@@ -1,7 +1,7 @@
 citHeader("To cite jpinfect in publications, please use:")
 
-citEntry(
-  entry = "Article",
+bibentry(
+  bibtype = "Article",
   title = "An R Package for Acquiring and Processing Notifiable Infectious Diseases Dataset from the Japan Institute for Health Security",
   author = c(
     person("Tomonori", "Hoshi"),
@@ -9,9 +9,9 @@ citEntry(
     person("Satoshi", "Kaneko")
   ),
   journal = "Journal of Open Source Software",
-  year = 2025,
-  volume = 10,
-  number = 115,
+  year = "2025",
+  volume = "10",
+  number = "115",
   pages = "8577",
   doi = "10.21105/joss.08577",
   url = "https://joss.theoj.org/papers/10.21105/joss.08577",
