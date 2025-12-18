@@ -1,0 +1,16 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^CODE_OF_CONDUCT\.md$
+^doc$
+^Meta$
+^raw_data$
+^raw_data/.*$
+^joss$
+LICENSE
+^\.github$
+^CITATION.cff$
+^CODE_OF_CONDUCT\.md$
+^plot_example\.png$
+^CONTRIBUTING\.md$
+^README\.md$

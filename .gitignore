@@ -23,7 +23,7 @@
 jpinfect.Rproj
 
 # Rbuidignore
-.Rbuildignore
+# .Rbuildignore
 
 # produced vignettes
 vignettes/*.html
