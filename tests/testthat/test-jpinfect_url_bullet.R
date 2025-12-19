@@ -15,6 +15,10 @@ test_that("jpinfect_url_bullet behaves as expected", {
   expect_error(jpinfect_url_bullet(year = 2024, week = 1:10, language = "invalid"),
                "Invalid language specified. Use 'en' for English or 'jp' for Japanese.")
 
+  # Skip tests that require internet connection on CRAN or when offline
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+
   # Test: valid input for English URLs
   expect_message(
     jpinfect_url_bullet(year = 2024, week = 1:2, language = "en"),
