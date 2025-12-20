@@ -14,7 +14,6 @@ bibentry(
   number = "115",
   pages = "8577",
   doi = "10.21105/joss.08577",
-  url = "https://joss.theoj.org/papers/10.21105/joss.08577",
   textVersion =
     paste(
       "Hoshi T, Ishigaki E, Kaneko S (2025).",
