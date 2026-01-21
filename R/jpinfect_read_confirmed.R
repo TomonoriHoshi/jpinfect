@@ -138,7 +138,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   base_name <- basename(file_path)
 
   # Initalise multi-core
-  plan(multisession)
+  with(plan(multisession), local = TRUE)
 
   # Multicore handling for each excel
   if (str_detect(base_name, "11\\.xls|01_1\\.xls")) {
@@ -194,9 +194,6 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
     stop(paste("Unsupported file format:", base_name,
                "\nFile should contain '11.xls', '01_1.xls', or '02_1.xls' in its name."))
   }
-
-  # Finish multi-core settings
-  plan(sequential)
 
   combined_data <- bind_rows(data_list) %>% suppressMessages
   message(".", appendLF = FALSE) # progress report
