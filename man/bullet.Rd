@@ -5,7 +5,7 @@
 \alias{bullet}
 \title{Bullet report Data}
 \format{
-A data frame with 4992 rows and 178 columns.
+A data frame with 5280 rows and 178 columns.
 \describe{
 \item{prefecture}{Case numbers for prefecture}
 \item{year}{Case numbers for year}
