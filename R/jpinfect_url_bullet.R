@@ -67,15 +67,11 @@ jpinfect_url_bullet <- function(year = NULL, week = 1:53, language = "en") {
 
     # Construct the base URL
     if (language == "en") {
-      url_a <- "https://id-info.jihs.go.jp/surveillance/idwr/en/rapid/"
+      url_a <- "https://id-info.jihs.go.jp/en/surveillance/idwr/rapid/"
       url_b <- paste0(year, "/", sprintf("%02d", i), "/", "zensu", sprintf("%02d", i), ".csv")
     } else if (language == "jp") {
-      url_a <- if ((year >= 2025) & (i >= 11)) {
-        "https://id-info.jihs.go.jp/surveillance/idwr/jp/rapid/"
-      } else {
-        "https://id-info.jihs.go.jp/surveillance/idwr/rapid/"
-      }
-      url_b <- paste0(year, "/", sprintf("%01d", i), "/", year, "-", sprintf("%02d", i), "-zensu.csv")
+      url_a <- if (year == 2024) {"https://id-info.jihs.go.jp/surveillance/idwr/rapid/"} else {"https://id-info.jihs.go.jp/surveillance/idwr/provisional/" }
+      url_b <- if (year == 2024) {paste0(year, "/", sprintf("%01d", i), "/", year, "-", sprintf("%02d", i), "-zensu.csv")} else {paste0(year, "/", sprintf("%02d", i), "/", year, "-", sprintf("%02d", i), "-zensu.csv") }
     }
 
     # Combine base URL and file-specific path
