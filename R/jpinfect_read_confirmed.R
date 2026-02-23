@@ -7,6 +7,7 @@
 #' @param path A character string specifying the path to a single file or directory containing multiple files.
 #' @param type A character string specifying the type of data to import. Must be either \code{"sex"} or \code{"place"}.
 #' @param ... Additional arguments passed to internal functions for further customization.
+#' @param skip_size_check A logical value indicating whether to skip the file size check. Defaults to \code{FALSE}.
 #'
 #' @return A data frame containing processed case reports for all rows and columns in the files.
 #'
@@ -25,11 +26,11 @@
 #' \donttest{
 #' # Process a single file
 #' data_file <- system.file("extdata", "1999_Syu_11.xls", package = "jpinfect")
-#' data_single <- jpinfect_read_confirmed(data_file)
+#' data_single <- jpinfect_read_confirmed(data_file, skip_size_check = TRUE)
 #'
 #' # Process all files in a directory
 #' data_dir <- system.file("extdata", package = "jpinfect")
-#' data_multiple <- jpinfect_read_confirmed(data_dir, type = "place")
+#' data_multiple <- jpinfect_read_confirmed(data_dir, type = "place", skip_size_check = TRUE)
 #' }
 #'
 #' @importFrom stringr str_extract str_detect
@@ -39,13 +40,13 @@
 #' @importFrom readxl read_excel
 #' @importFrom ISOweek ISOweek2date
 #' @export
-jpinfect_read_confirmed <- function(path, type = NULL, ...) {
+jpinfect_read_confirmed <- function(path, type = NULL, ..., skip_size_check = FALSE) {
   # Return path location
   message("Current working directory: ", getwd())
 
   # Single file: Check if it's a file but not a directory
   if (file.exists(path) && !dir.exists(path)) {
-    return(.jpinfect_read_excel(path, ...))
+    return(.jpinfect_read_excel(path, ..., skip_size_check = skip_size_check))
   }
 
   # Directory: Validate 'type'
@@ -56,7 +57,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
     if (!type %in% c("sex", "place")) {
       stop("Invalid 'type' argument: must be either 'sex' or 'place'.")
     }
-    return(.jpinfect_read_excels(type = type, directory = path, ...))
+    return(.jpinfect_read_excels(type = type, directory = path, ..., skip_size_check = skip_size_check))
   }
 
   # Invalid path
@@ -92,7 +93,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 #' @importFrom future.apply future_lapply
 #'
 #' @keywords internal
-.jpinfect_read_excel <- function(file_path, year = NULL, sheet_range = NULL) {
+.jpinfect_read_excel <- function(file_path, year = NULL, sheet_range = NULL, ..., skip_size_check = FALSE) {
   if (missing(file_path)) {
     stop("The 'file_path' argument is missing. Please specify a valid file path.")
   }
@@ -100,10 +101,12 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
     stop("The 'file_path' is empty. Please specify a valid file path.")
   }
 
+
+
   # file size check
-  if (!(nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) ||
-        Sys.getenv("CI") == "true" ||
-        Sys.getenv("NOT_CRAN") == "" )) {
+  skip_env <- tolower(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) %in% c("true","1","yes")
+
+  if (!skip_size_check && !skip_env) {
     file_size <- file.info(file_path)$size
     if (!is.na(file_size) && file_size < 2000000) {
       stop(paste("The file size is unusually small (< 2000 KB) and may be corrupted.\n",
@@ -252,8 +255,6 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 
   message("Completed!\n")
 
-  Sys.sleep(0.731)
-
   return(combined_data)
 
 }
@@ -282,7 +283,7 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 #' @importFrom dplyr bind_rows relocate mutate
 #' @importFrom stringr str_detect
 #' @keywords internal
-.jpinfect_read_excels <- function(type, directory) {
+.jpinfect_read_excels <- function(type, directory, ..., skip_size_check = FALSE) {
   # type errors
   if(!type %in% c("sex","place")) {
     stop("type must be either \"sex\" or \"place\"")
@@ -302,9 +303,9 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
   }
 
   # file size check
-  if (!(nzchar(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) ||
-        Sys.getenv("CI") == "true" ||
-        Sys.getenv("NOT_CRAN") == "" )) {
+    skip_env <- tolower(Sys.getenv("JPINFECT_SKIP_SIZE_CHECK")) %in% c("true","1","yes")
+
+    if (!skip_size_check && !skip_env) {
     valid_files <- local_files[file.info(local_files)$size >= 2000000]
     invalid_files <- setdiff(local_files, valid_files)
     if (length(invalid_files) > 0) {
@@ -326,7 +327,9 @@ jpinfect_read_confirmed <- function(path, type = NULL, ...) {
 
   for(i in seq_along(local_files)) {
     message("Starting:", local_files[i], "\n")
-    temp_data <- .jpinfect_read_excel(file_path = local_files[i])
+    temp_data <- .jpinfect_read_excel(file_path = local_files[i],
+                                      ...,
+                                      skip_size_check = skip_size_check)
     all_data[[i]] <- temp_data
     message("\n")
   }

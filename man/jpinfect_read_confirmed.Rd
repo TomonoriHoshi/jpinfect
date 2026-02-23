@@ -4,7 +4,7 @@
 \alias{jpinfect_read_confirmed}
 \title{Read Confirmed Case Reports from File or Directory}
 \usage{
-jpinfect_read_confirmed(path, type = NULL, ...)
+jpinfect_read_confirmed(path, type = NULL, ..., skip_size_check = FALSE)
 }
 \arguments{
 \item{path}{A character string specifying the path to a single file or directory containing multiple files.}
@@ -12,6 +12,8 @@ jpinfect_read_confirmed(path, type = NULL, ...)
 \item{type}{A character string specifying the type of data to import. Must be either \code{"sex"} or \code{"place"}.}
 
 \item{...}{Additional arguments passed to internal functions for further customization.}
+
+\item{skip_size_check}{A logical value indicating whether to skip the file size check. Defaults to \code{FALSE}.}
 }
 \value{
 A data frame containing processed case reports for all rows and columns in the files.
@@ -36,11 +38,11 @@ Supported file patterns:
 \donttest{
 # Process a single file
 data_file <- system.file("extdata", "1999_Syu_11.xls", package = "jpinfect")
-data_single <- jpinfect_read_confirmed(data_file)
+data_single <- jpinfect_read_confirmed(data_file, skip_size_check = TRUE)
 
 # Process all files in a directory
 data_dir <- system.file("extdata", package = "jpinfect")
-data_multiple <- jpinfect_read_confirmed(data_dir, type = "place")
+data_multiple <- jpinfect_read_confirmed(data_dir, type = "place", skip_size_check = TRUE)
 }
 
 }

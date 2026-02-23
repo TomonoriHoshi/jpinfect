@@ -4,7 +4,13 @@
 \alias{.jpinfect_read_excel}
 \title{Process a Single Excel File}
 \usage{
-.jpinfect_read_excel(file_path, year = NULL, sheet_range = NULL)
+.jpinfect_read_excel(
+  file_path,
+  year = NULL,
+  sheet_range = NULL,
+  ...,
+  skip_size_check = FALSE
+)
 }
 \arguments{
 \item{file_path}{A character string specifying the path to the Excel file.}
