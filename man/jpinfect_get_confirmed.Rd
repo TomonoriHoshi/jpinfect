@@ -13,7 +13,7 @@ jpinfect_get_confirmed(
 }
 \arguments{
 \item{years}{(numeric) A vector of years to download data for. If \code{NULL},
-the most recent available year will be used. Available years range from 1999 to 2023.}
+the most recent available year will be used. Available years range from 1999 to 2024.}
 
 \item{type}{(character) The type of data to download. Must be either \code{"sex"}
 or \code{"place"}.}

@@ -4,7 +4,7 @@
 #' This function downloads infectious disease data from the Japan Institute for Health Security (JIHS) for specified years and types.
 #'
 #' @param years (numeric) A vector of years to download data for. If \code{NULL},
-#'   the most recent available year will be used. Available years range from 1999 to 2023.
+#'   the most recent available year will be used. Available years range from 1999 to 2024.
 #' @param type (character) The type of data to download. Must be either \code{"sex"}
 #'   or \code{"place"}.
 #' @param overwrite (logical) Whether to overwrite existing files. Defaults to \code{FALSE}.
@@ -39,8 +39,8 @@ jpinfect_get_confirmed <- function(years = NULL, type = "sex", overwrite = FALSE
   }
 
   # Validate years parameter
-  # As of 16 March 2025
-  max_available_year <- 2023
+  # As of 3 April 2026
+  max_available_year <- 2024
 
   if (type == "sex") {
     min_available_year <- 1999

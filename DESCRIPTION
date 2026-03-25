@@ -1,7 +1,7 @@
 Package: jpinfect
 Type: Package
 Title: Acquiring and Processing Data from Japan Institute for Health Security
-Version: 2023.2026.06
+Version: 2024.2026.12
 Authors@R: c(
     person(
       "Tomonori", "Hoshi",
@@ -27,7 +27,7 @@ Description: Download and post process the infectious disease case data
 License: GPL (>= 3)
 Encoding: UTF-8
 LazyData: true
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Imports: 
     dplyr (>= 1.1.4),
     future (>= 1.34.0),
