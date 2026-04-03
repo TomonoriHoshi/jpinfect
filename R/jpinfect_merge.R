@@ -61,11 +61,11 @@ jpinfect_merge <- function (dataset1 = sex_prefecture, dataset2 = place_prefectu
   col_count <- ncol(dataset) - 4
   if (col_count < 0) stop("Not enough cols for data merge.")
 
-  if (all((col_count %% 3 == 0) & (dataset$year <= 2023))) {
+  if (all((col_count %% 3 == 0) & (dataset$year <= 2024))) {
     return("sex")
-  } else if (all((col_count %% 4 == 0) & (dataset$year <= 2023))) {
+  } else if (all((col_count %% 4 == 0) & (dataset$year <= 2024))) {
     return("place")
-  } else if (all((col_count %% 2 == 0) & (dataset$year > 2023))) {
+  } else if (all((col_count %% 2 == 0) & (dataset$year > 2024))) {
     return("bullet")
   } else {
     stop("Column numbers are not suitable for data merge.")
