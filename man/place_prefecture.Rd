@@ -427,6 +427,10 @@ A data frame with 57553 rows and 420 columns.
 \item{HIV/AIDS (Inside Japan)}{Case numbers for HIV/AIDS (Inside Japan)}
 \item{HIV/AIDS (Others)}{Case numbers for HIV/AIDS (Others)}
 \item{HIV/AIDS (Unknown)}{Case numbers for HIV/AIDS (Unknown)}
+\item{Carbapenem-resistant Enterobacterales infection (total)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (total)}
+\item{Carbapenem-resistant Enterobacterales infection (Inside Japan)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (Inside Japan)}
+\item{Carbapenem-resistant Enterobacterales infection (Others)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (Others)}
+\item{Carbapenem-resistant Enterobacterales infection (Unknown)}{Case numbers for Carbapenem-resistant enterobacteriaceae infection (Unknown)}
 }
 }
 \source{
