@@ -31,9 +31,9 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' @description
 #' This dataset contains information about the place of infection by prefecture,
 #' sourced from the Japan Institute for Health Security (JIHS). The data is between
-#' 2001 and 2023.
+#' 2001 and 2024.
 #'
-#' @format A data frame with 57553 rows and 420 columns.
+#' @format A data frame with 60048 rows and 420 columns.
 #' \describe{
 #' \item{prefecture}{Case numbers for prefecture}
 #' \item{year}{Case numbers for year}
@@ -470,9 +470,9 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' @description
 #' This dataset contains demographic information on sex by prefecture,
 #' sourced from the Japan Institute for Health Security (JIHS).  The data ranges between
-#' 1999 and 2023.
+#' 1999 and 2024.
 #'
-#' @format A data frame with 61920 rows and 319 columns.
+#' @format A data frame with 64416 rows and 319 columns.
 #' \describe{
 #' \item{prefecture}{Case numbers for prefecture}
 #' \item{year}{Case numbers for year}
@@ -807,7 +807,7 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' sourced from The Japan Institute for Health Security (JIHS).The specific date range
 #' provided are subject to updates.
 #'
-#' @format A data frame with 5520 rows and 178 columns.
+#' @format A data frame with 3216 rows and 180 columns.
 #' \describe{
 #' \item{prefecture}{Case numbers for prefecture}
 #' \item{year}{Case numbers for year}
@@ -859,6 +859,8 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' \item{Hepatitis A (cumulative)}{Case numbers for Hepatitis A (cumulative)}
 #' \item{Echinococcosis (weekly)}{Case numbers for Echinococcosis (weekly)}
 #' \item{Echinococcosis (cumulative)}{Case numbers for Echinococcosis (cumulative)}
+#' \item{Mpox (weekly)}{Case numbers for Mpox (weekly)}
+#' \item{Mpox (cumulative)}{Case numbers for Mpox (cumulative)}
 #' \item{Yellow fever (weekly)}{Case numbers for Yellow fever (weekly)}
 #' \item{Yellow fever (cumulative)}{Case numbers for Yellow fever (cumulative)}
 #' \item{Psittacosis (weekly)}{Case numbers for Psittacosis (weekly)}
@@ -941,6 +943,8 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' \item{Amebiasis (cumulative)}{Case numbers for Amebiasis (cumulative)}
 #' \item{Viral hepatitis (excluding hepatitis A and E) (weekly)}{Case numbers for Viral hepatitis (excluding hepatitis A and E) (weekly)}
 #' \item{Viral hepatitis (excluding hepatitis A and E) (cumulative)}{Case numbers for Viral hepatitis (excluding hepatitis A and E) (cumulative)}
+#' \item{Carbapenem-resistant Enterobacterales infection (weekly)}{Case numbers for Carbapenem-resistant Enterobacterales infection (weekly)}
+#' \item{Carbapenem-resistant Enterobacterales infection (cumulative)}{Case numbers for Carbapenem-resistant Enterobacterales infection (cumulative)}
 #' \item{Acute Flaccid Paralysis (excluding Acute poliomyelitis) (weekly)}{Case numbers for Acute Flaccid Paralysis (excluding Acute poliomyelitis) (weekly)}
 #' \item{Acute Flaccid Paralysis (excluding Acute poliomyelitis) (cumulative)}{Case numbers for Acute Flaccid Paralysis (excluding Acute poliomyelitis) (cumulative)}
 #' \item{Acute encephalitis (excluding JE and WNE) (weekly)}{Case numbers for Acute encephalitis (excluding JE and WNE) (weekly)}
@@ -983,10 +987,8 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' \item{Measles (cumulative)}{Case numbers for Measles (cumulative)}
 #' \item{Multiple drug-resistant Acinetobacter infection (weekly)}{Case numbers for Multiple drug-resistant Acinetobacter infection (weekly)}
 #' \item{Multiple drug-resistant Acinetobacter infection (cumulative)}{Case numbers for Multiple drug-resistant Acinetobacter infection (cumulative)}
-#' \item{Mpox (weekly)}{Case numbers for Mpox (weekly)}
-#' \item{Mpox (cumulative)}{Case numbers for Mpox (cumulative)}
-#' \item{Carbapenem-resistant Enterobacterales infection (weekly)}{Case numbers for Carbapenem-resistant Enterobacterales infection (weekly)}
-#' \item{Carbapenem-resistant Enterobacterales infection (cumulative)}{Case numbers for Carbapenem-resistant Enterobacterales infection (cumulative)}
+#' \item{Multi-drug-resistant Pseudomonas aeruginosa infection (weekly)}{Case numbers for Multi-drug-resistant Pseudomonas aeruginosa infection (weekly)}
+#' \item{Multi-drug-resistant Pseudomonas aeruginosa infection (cumulative)}{Case numbers for Multi-drug-resistant Pseudomonas aeruginosa infection (cumulative)}
 #' }
 #'
 #' @source

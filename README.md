@@ -51,11 +51,11 @@ library(jpinfect)
 
 The following datasets are included in this package and sourced from the Japan Institute for Health Security (JIHS). These datasets are:
 
--   `sex_prefecture`: Confirmed weekly case reports on the sex distribution of reported cases by prefecture from 1999 to 2023. For further details, run `?sex_prefecture`.
+-   `sex_prefecture`: Confirmed weekly case reports on the sex distribution of reported cases by prefecture from 1999 to 2024. For further details, run `?sex_prefecture`.
 
--   `place_prefecture`: Confirmed weekly case reports about the place of infection by prefecture between 2001 and 2023. For further details, run `?place_prefecture`.
+-   `place_prefecture`: Confirmed weekly case reports about the place of infection by prefecture between 2001 and 2024. For further details, run `?place_prefecture`.
 
--   `bullet`: Provisional weekly case reported by prefecture from 2024 to the current latest reports. For further details, run `?bullet`.
+-   `bullet`: Provisional weekly case reported by prefecture from 2025 to the current latest reports. For further details, run `?bullet`.
 
 ``` r
 # Loading build-in datasets
