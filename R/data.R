@@ -807,7 +807,7 @@ prefecture_en <- c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata",
 #' sourced from The Japan Institute for Health Security (JIHS).The specific date range
 #' provided are subject to updates.
 #'
-#' @format A data frame with 3216 rows and 180 columns.
+#' @format A data frame with 3360 rows and 180 columns.
 #' \describe{
 #' \item{prefecture}{Case numbers for prefecture}
 #' \item{year}{Case numbers for year}
