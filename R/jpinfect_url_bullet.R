@@ -6,7 +6,7 @@
 #' the chosen language (English or Japanese).
 #' See this webpage for further details: https://id-info.jihs.go.jp/
 #'
-#' @param year An integer specifying the year of the data. Must be provided explicitly and should be after 2021.
+#' @param year An integer specifying the year of the data. Must be provided explicitly and should be after 2024.
 #' @param week A numeric vector specifying the weeks to display URLs for (default is 1:53).
 #'             Week numbers should be between 1 and 53.
 #' @param language A character string specifying the language of the data ('en' for English, 'jp' for Japanese).
@@ -26,14 +26,14 @@
 #'
 #' @examples
 #' \donttest{
-#' # Display URLs for English data for weeks 1 to 5 in 2025
-#' jpinfect_url_bullet(year = 2025, week = 1:5, language = "en")
+#' # Display URLs for English data for weeks 1 to 5 in 2026
+#' jpinfect_url_bullet(year = 2026, week = 1:5, language = "en")
 #'
 #' # Display URLs for Japanese data for all weeks in 2025
 #' jpinfect_url_bullet(year = 2025, language = "jp")
 #'
-#' # Display URLs for English data for weeks 10 to 20 in 2024
-#' jpinfect_url_bullet(year = 2024, week = 10:20, language = "en")
+#' # Display URLs for English data for weeks 10 to 20 in 2025
+#' jpinfect_url_bullet(year = 2025, week = 10:20, language = "en")
 #' }
 #'
 #' @export
@@ -44,8 +44,8 @@ jpinfect_url_bullet <- function(year = NULL, week = 1:53, language = "en") {
   }
 
   # Check if the year is valid for this function
-  if (year <= 2023) {
-    stop("This function only works for years after 2023.")
+  if (year <= 2024) {
+    stop("This function only works for years after 2024.")
   }
 
   # Validate the week range
@@ -70,8 +70,8 @@ jpinfect_url_bullet <- function(year = NULL, week = 1:53, language = "en") {
       url_a <- "https://id-info.jihs.go.jp/en/surveillance/idwr/rapid/"
       url_b <- paste0(year, "/", sprintf("%02d", i), "/", "zensu", sprintf("%02d", i), ".csv")
     } else if (language == "jp") {
-      url_a <- if (year == 2024) {"https://id-info.jihs.go.jp/surveillance/idwr/rapid/"} else {"https://id-info.jihs.go.jp/surveillance/idwr/provisional/" }
-      url_b <- if (year == 2024) {paste0(year, "/", sprintf("%01d", i), "/", year, "-", sprintf("%02d", i), "-zensu.csv")} else {paste0(year, "/", sprintf("%02d", i), "/", year, "-", sprintf("%02d", i), "-zensu.csv") }
+      url_a <- if (year == 2025) {"https://id-info.jihs.go.jp/surveillance/idwr/rapid/"} else {"https://id-info.jihs.go.jp/surveillance/idwr/provisional/" }
+      url_b <- if (year == 2025) {paste0(year, "/", sprintf("%01d", i), "/", year, "-", sprintf("%02d", i), "-zensu.csv")} else {paste0(year, "/", sprintf("%02d", i), "/", year, "-", sprintf("%02d", i), "-zensu.csv") }
     }
 
     # Combine base URL and file-specific path
