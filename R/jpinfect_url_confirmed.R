@@ -38,7 +38,7 @@ jpinfect_url_confirmed <- function(year = 2001, type = "sex") {
       url <- paste0(url_a, url_b, url_c)
     }
     else if (year >= 2011 & year < 2014) {
-      url_a <- "https:/id-info.jihs.go.jp/niid/images/idwr/ydata/"
+      url_a <- "https://id-info.jihs.go.jp/niid/images/idwr/ydata/"
       url_b <- year
       url_c <- "/Syuukei/Syu_01_1.xls"
       url <- paste0(url_a, url_b, url_c)
