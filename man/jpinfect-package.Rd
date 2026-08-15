@@ -36,6 +36,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Tomonori Hoshi \email{tomonori.hoshi.japan@gmail.com}
   \item Erina Ishigaki \email{Erina.Ishigaki1@alumni.lshtm.ac.uk}
   \item Satoshi Kaneko \email{skaneko@nagasaki-u.ac.jp}
 }

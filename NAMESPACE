@@ -10,36 +10,46 @@ export(jpinfect_url_bullet)
 export(jpinfect_url_confirmed)
 export(prefecture_en)
 importFrom(ISOweek,ISOweek2date)
-importFrom(dplyr,across)
-importFrom(dplyr,bind_cols)
-importFrom(dplyr,bind_rows)
-importFrom(dplyr,contains)
-importFrom(dplyr,filter)
-importFrom(dplyr,full_join)
-importFrom(dplyr,mutate)
-importFrom(dplyr,relocate)
-importFrom(dplyr,select)
-importFrom(dplyr,select_if)
-importFrom(future,multisession)
-importFrom(future,plan)
-importFrom(future,sequential)
+importFrom(dplyr,
+  across,
+  bind_cols,
+  bind_rows,
+  contains,
+  filter,
+  full_join,
+  mutate,
+  relocate,
+  select,
+  select_if
+)
+importFrom(future,
+  multisession,
+  plan,
+  sequential
+)
 importFrom(future.apply,future_lapply)
 importFrom(httr,HEAD)
 importFrom(magrittr,"%>%")
-importFrom(readr,locale)
-importFrom(readr,read_csv)
-importFrom(readr,write_csv)
+importFrom(readr,
+  locale,
+  read_csv,
+  write_csv
+)
 importFrom(readxl,read_excel)
 importFrom(stats,na.omit)
 importFrom(stringi,stri_trans_general)
-importFrom(stringr,str_c)
-importFrom(stringr,str_detect)
-importFrom(stringr,str_extract)
-importFrom(stringr,str_pad)
-importFrom(stringr,str_replace)
-importFrom(stringr,str_replace_all)
-importFrom(stringr,str_trim)
-importFrom(tidyr,pivot_longer)
-importFrom(tidyr,pivot_wider)
+importFrom(stringr,
+  str_c,
+  str_detect,
+  str_extract,
+  str_pad,
+  str_replace,
+  str_replace_all,
+  str_trim
+)
+importFrom(tidyr,
+  pivot_longer,
+  pivot_wider
+)
 importFrom(tidyselect,last_col)
 importFrom(utils,download.file)

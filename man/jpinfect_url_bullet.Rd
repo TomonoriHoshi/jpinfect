@@ -7,7 +7,7 @@
 jpinfect_url_bullet(year = NULL, week = 1:53, language = "en")
 }
 \arguments{
-\item{year}{An integer specifying the year of the data. Must be provided explicitly and should be after 2021.}
+\item{year}{An integer specifying the year of the data. Must be provided explicitly and should be after 2024.}
 
 \item{week}{A numeric vector specifying the weeks to display URLs for (default is 1:53).
 Week numbers should be between 1 and 53.}
@@ -34,14 +34,14 @@ See this webpage for further details: https://id-info.jihs.go.jp/
 }
 \examples{
 \donttest{
-# Display URLs for English data for weeks 1 to 5 in 2025
-jpinfect_url_bullet(year = 2025, week = 1:5, language = "en")
+# Display URLs for English data for weeks 1 to 5 in 2026
+jpinfect_url_bullet(year = 2026, week = 1:5, language = "en")
 
 # Display URLs for Japanese data for all weeks in 2025
 jpinfect_url_bullet(year = 2025, language = "jp")
 
-# Display URLs for English data for weeks 10 to 20 in 2024
-jpinfect_url_bullet(year = 2024, week = 10:20, language = "en")
+# Display URLs for English data for weeks 10 to 20 in 2025
+jpinfect_url_bullet(year = 2025, week = 10:20, language = "en")
 }
 
 }
