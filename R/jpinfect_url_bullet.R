@@ -78,7 +78,7 @@ jpinfect_url_bullet <- function(year = NULL, week = 1:53, language = "en") {
     url <- paste0(url_a, url_b)
 
     # Check if the data is available
-    if (length(as.numeric(httr::HEAD(url)$headers$`content-length`)) == 0) {
+    if (httr::HEAD(url)$status_code == 404) {
       message(paste0("JIHS data is not available for week ", i, " in year ", year, "."))
       next  # Skip this iteration if data is not available
     }
